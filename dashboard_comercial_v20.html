@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Comercial - Captação Self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis de Cores - Baseado na referência AnotaAI */
+        :root {
+            --ifood-red: #EA1D2C;
+            --ifood-dark-red: #B0121E;
+            --ifood-bg: #F7F7F7;
+            --text-primary: #333;
+            --text-secondary: #6b7280;
+            --border-gray: #e5e7eb;
+            --bg-white: #fff;
+            --bg-light-red: #fff5f5;
+            --bg-lighter-red: #ffebee;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--ifood-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Layout Principal */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Menu Lateral */
+        .sidebar {
+            width: 280px;
+            background-color: var(--bg-white);
+            border-right: 1px solid var(--border-gray);
+            padding: 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 2rem 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background-color: var(--ifood-red);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .sidebar-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .menu-section {
+            padding: 1.5rem 0;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--gray-700);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+
+        .menu-item:hover {
+            background-color: var(--gray-50);
+            color: var(--ifood-red);
+        }
+
+        .menu-item.active {
+            background-color: var(--bg-lighter-red);
+            color: var(--ifood-red);
+            border-left-color: var(--ifood-red);
+            font-weight: 600;
+        }
+
+        .menu-item-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-badge {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            margin-left: auto;
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--gray-50);
+        }
+
+        .submenu.open {
+            max-height: 600px;
+        }
+
+        .submenu-item {
+            display: block;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu-item:hover {
+            background-color: var(--bg-light-red);
+            color: var(--ifood-red);
+        }
+
+        .submenu-item.active {
+            background-color: var(--bg-lighter-red);
+            color: var(--ifood-red);
+            font-weight: 600;
+            border-left-color: var(--ifood-red);
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 0;
+            background-color: var(--ifood-bg);
+        }
+
+        /* Header da Página */
+        .page-header {
+            background: linear-gradient(135deg, var(--ifood-red) 0%, var(--ifood-dark-red) 100%);
+            color: white;
+            padding: 3rem 3rem 2rem;
+        }
+
+        .page-title-main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle-main {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background-color: var(--bg-white);
+            margin: -1.5rem 3rem 2rem;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .welcome-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background-color: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-gray);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--ifood-red);
+            line-height: 1;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 0 3rem 3rem;
+        }
+
+        /* Filtros */
+        .filters-container {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-gray);
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .filters-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .clear-filters {
+            background: none;
+            border: none;
+            color: var(--ifood-red);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .clear-filters:hover {
+            background-color: var(--bg-lighter-red);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-select {
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            background-color: var(--bg-white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .filter-select:hover {
+            border-color: var(--ifood-red);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--ifood-red);
+            box-shadow: 0 0 0 3px rgba(234, 29, 44, 0.1);
+        }
+
+        .active-filters {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .active-filters-label {
+            font-weight: 600;
+        }
+
+        /* Tabela de Resumo */
+        .table-container {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-gray);
+            overflow: hidden;
+        }
+
+        .table-header {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-gray);
+            background-color: var(--gray-50);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: var(--bg-white);
+        }
+
+        th {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border-gray);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: var(--gray-50);
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            font-weight: 500;
+        }
+
+        td:first-child {
+            font-weight: 600;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-icon {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .status-em-testes {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-em-testes .status-icon {
+            background-color: #1e40af;
+        }
+
+        .status-em-desenvolvimento {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-em-desenvolvimento .status-icon {
+            background-color: #92400e;
+        }
+
+        .status-aguardando-teste {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-aguardando-teste .status-icon {
+            background-color: #d97706;
+        }
+
+        .status-mapeada {
+            background-color: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .status-mapeada .status-icon {
+            background-color: #3730a3;
+        }
+
+        .status-concluido {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-concluido .status-icon {
+            background-color: #065f46;
+        }
+
+        /* Cards de Canais */
+        .cards-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .section-count {
+            background-color: var(--gray-100);
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            font-weight: 700;
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid var(--border-gray);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(234, 29, 44, 0.12);
+            border-color: var(--ifood-red);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-canal {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--ifood-red);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            margin-top: 1rem;
+        }
+
+        .card-field {
+            margin-bottom: 1rem;
+        }
+
+        .card-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-field-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.375rem;
+        }
+
+        .card-field-value {
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .card-duration {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--gray-100);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--ifood-red) 0%, var(--ifood-dark-red) 100%);
+            color: white;
+            padding: 2rem 2.5rem;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
+            gap: 2rem;
+        }
+
+        .modal-header-content {
+            flex: 1;
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .modal-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-canal-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 300;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-section-title {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--ifood-red);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--ifood-red);
+        }
+
+        .modal-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-field-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-field-icon {
+            font-size: 1rem;
+        }
+
+        .modal-field-value {
+            font-size: 0.95rem;
+            color: var(--gray-800);
+            line-height: 1.7;
+            padding: 1rem 1.25rem;
+            background-color: var(--gray-50);
+            border-radius: 8px;
+            border-left: 3px solid var(--ifood-red);
+        }
+
+        .modal-field-value.empty {
+            color: var(--gray-400);
+            font-style: italic;
+            border-left-color: var(--gray-300);
+        }
+
+        .modal-full-width {
+            grid-column: 1 / -1;
+        }
+
+        .modal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--ifood-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background-color: var(--bg-light-red);
+            border: 1px solid var(--border-gray);
+        }
+
+        .modal-link:hover {
+            background-color: var(--bg-lighter-red);
+            border-color: var(--ifood-red);
+            transform: translateX(4px);
+        }
+
+        .modal-link::before {
+            content: '→';
+            font-size: 1.25rem;
+        }
+
+        .modal-dates {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .modal-date-item {
+            flex: 1;
+        }
+
+        /* Responsividade do Modal */
+        @media (max-width: 768px) {
+            .modal {
+                max-width: 100%;
+                margin: 1rem;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .modal-dates {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+
+        /* Página de Canal - Novo Design */
+        .canal-header {
+            background-color: var(--bg-white);
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .canal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .canal-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Tabs de Navegação */
+        .canal-tabs {
+            display: flex;
+            gap: 0;
+            background-color: var(--bg-white);
+            padding: 0 3rem;
+            border-bottom: 2px solid var(--border-gray);
+            overflow-x: auto;
+        }
+
+        .canal-tab {
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .canal-tab:hover {
+            color: var(--ifood-red);
+            background-color: var(--bg-light-red);
+        }
+
+        .canal-tab.active {
+            color: var(--ifood-red);
+            border-bottom-color: var(--ifood-red);
+        }
+
+        .canal-tab-icon {
+            font-size: 1rem;
+        }
+
+        .canal-tab-count {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .canal-tab.active .canal-tab-count {
+            background-color: var(--ifood-red);
+            color: white;
+        }
+
+        /* Conteúdo das Tabs */
+        .canal-tab-content {
+            display: none;
+            padding: 2rem 3rem;
+        }
+
+        .canal-tab-content.active {
+            display: block;
+        }
+
+        /* Cards do Canal - Novo Design */
+        .canal-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .canal-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .canal-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--ifood-red);
+            transform: translateY(-4px);
+        }
+
+        .canal-card-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .canal-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .canal-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .canal-card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .canal-card-status.em-testes {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .canal-card-status.em-desenvolvimento {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .canal-card-status.mapeada {
+            background-color: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .canal-card-status.aguardando-teste {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .canal-card-status.concluido {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .canal-card-canal {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        .canal-card-body {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .canal-card-field {
+            margin-bottom: 0.875rem;
+        }
+
+        .canal-card-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .canal-card-field-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            margin-bottom: 0.375rem;
+        }
+
+        .canal-card-field-value {
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* Empty State */
+        .canal-empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .canal-empty-state-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Página vazia */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-text {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        /* Utilitários */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 260px;
+            }
+
+            .main-content {
+                margin-left: 260px;
+            }
+
+            .page-header {
+                padding: 2rem;
+            }
+
+            .welcome-section {
+                margin: -1rem 2rem 2rem;
+            }
+
+            .content-section {
+                padding: 0 2rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .page-header {
+                padding: 1.5rem;
+            }
+
+            .page-title-main {
+                font-size: 1.75rem;
+            }
+
+            .welcome-section {
+                margin: -1rem 1.5rem 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .content-section {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!-- Menu Lateral -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo">A</div>
+                    <div class="logo-text">AnotaAi</div>
+                </div>
+                <div class="sidebar-title">Captação Self</div>
+                <div class="sidebar-subtitle">Panorama geral das iniciativas de captação self</div>
+            </div>
+            <nav class="menu-section">
+                <a href="#" class="menu-item active" data-page="inicio">
+                    <span class="menu-item-content">Início</span>
+                </a>
+                <div class="menu-item" id="canais-menu">
+                    <span class="menu-item-content">Canais</span>
+                </div>
+                <div class="submenu" id="canais-submenu">
+                    <a href="#" class="submenu-item" data-page="trial" data-canal="Trial">Trial</a>
+                    <a href="#" class="submenu-item" data-page="self-checkout" data-canal="Self Checkout">Self Checkout</a>
+                    <a href="#" class="submenu-item" data-page="mozart" data-canal="Mozart">Mozart</a>
+                    <a href="#" class="submenu-item" data-page="livechat" data-canal="Livechat">Livechat</a>
+                    <a href="#" class="submenu-item" data-page="ssi" data-canal="SSI">SSI</a>
+                    <a href="#" class="submenu-item" data-page="vitrine" data-canal="Vitrine">Vitrine</a>
+                    <a href="#" class="submenu-item" data-page="sofia" data-canal="SofIA">SofIA</a>
+                    <a href="#" class="submenu-item" data-page="outros" data-canal="Outros">Outros</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Página Início -->
+            <div id="page-inicio" class="page-content">
+                <div class="page-header">
+                    <h1 class="page-title-main">Captação Self</h1>
+                    <p class="page-subtitle-main">Panorama Geral das iniciativas de captação self.</p>
+                </div>
+
+                <div class="content-section">
+                    <!-- Filtros Avançados -->
+                    <div class="filters-container">
+                        <div class="filters-header">
+                            <h3 class="filters-title">Filtros Avançados</h3>
+                            <button class="clear-filters" id="clear-filters">✕ Limpar todos</button>
+                        </div>
+                        <div class="filters-grid">
+                            <div class="filter-group">
+                                <label class="filter-label">Canal</label>
+                                                            <select class="filter-select" id="filter-canal">
+                                <option value="">Todos os canais</option>
+                                <option value="Trial">Trial</option>
+                                <option value="Self Checkout">Self Checkout</option>
+                                <option value="Mozart">Mozart</option>
+                                <option value="Livechat">Livechat</option>
+                                <option value="SSI">SSI</option>
+                                <option value="Vitrine">Vitrine</option>
+                                <option value="SofIA">SofIA</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Mês</label>
+                                <select class="filter-select" id="filter-mes">
+                                    <option value="">Todos os meses</option>
+                                    <option value="Abril/26">Abr/26</option>
+                                    <option value="Maio/26">Mai/26</option>
+                                    <option value="Junho/26">Jun/26</option>
+                                    <option value="Julho/26">Jul/26</option>
+                                    <option value="Agosto/26">Ago/26</option>
+                                    <option value="Setembro/26">Set/26</option>
+                                    <option value="Outubro/26">Out/26</option>
+                                    <option value="Novembro/26">Nov/26</option>
+                                    <option value="Dezembro/26">Dez/26</option>
+                                    <option value="Janeiro/27">Jan/27</option>
+                                    <option value="Fevereiro/27">Fev/27</option>
+                                    <option value="Março/27">Mar/27</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="active-filters" id="active-filters">
+                            <span class="active-filters-label">Filtros ativos:</span>
+                            <span id="active-filters-text">Nenhum</span>
+                        </div>
+                    </div>
+
+                    <!-- Tabela de Resumo -->
+                    <div class="table-container">
+                        <h2 class="table-header">Ações Ativas do Mês</h2>
+                        <div class="table-wrapper">
+                            <table id="resumo-table">
+                                <thead>
+                                    <tr>
+                                        <th>Canal</th>
+                                        <th>Nome da Ação</th>
+                                        <th>Status</th>
+                                        <th>Mês</th>
+                                        <th>Data de Início</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resumo-tbody">
+                                    <!-- Dados serão inseridos via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Páginas de Canais (Template) -->
+            <div id="page-canal" class="page-content hidden">
+                <div class="canal-header">
+                    <h1 class="canal-title" id="canal-title">Canal</h1>
+                    <p class="canal-subtitle" id="canal-subtitle">Acompanhamento de testes do canal</p>
+                </div>
+
+                <!-- Tabs de Navegação -->
+                <div class="canal-tabs">
+                    <button class="canal-tab active" data-tab="em-testes">
+                        <span class="canal-tab-icon">!</span>
+                        <span>Em Testes</span>
+                        <span class="canal-tab-count" id="tab-count-em-testes">0</span>
+                    </button>
+                    <button class="canal-tab" data-tab="em-desenvolvimento">
+                        <span class="canal-tab-icon">&lt;/&gt;</span>
+                        <span>Em Desenvolvimento</span>
+                        <span class="canal-tab-count" id="tab-count-em-desenvolvimento">0</span>
+                    </button>
+                    <button class="canal-tab" data-tab="aguardando-teste">
+                        <span class="canal-tab-icon">⏳</span>
+                        <span>Aguardando Teste</span>
+                        <span class="canal-tab-count" id="tab-count-aguardando-teste">0</span>
+                    </button>
+                    <button class="canal-tab" data-tab="mapeadas">
+                        <span>Iniciativas Mapeadas</span>
+                        <span class="canal-tab-count" id="tab-count-mapeadas">0</span>
+                    </button>
+                    <button class="canal-tab" data-tab="historico">
+                        <span>Histórico</span>
+                        <span class="canal-tab-count" id="tab-count-historico">0</span>
+                    </button>
+                </div>
+
+                <!-- Conteúdo das Tabs -->
+                <div class="canal-tab-content active" id="tab-content-em-testes">
+                    <div class="canal-cards-grid" id="cards-em-testes">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="canal-tab-content" id="tab-content-em-desenvolvimento">
+                    <div class="canal-cards-grid" id="cards-em-desenvolvimento">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="canal-tab-content" id="tab-content-aguardando-teste">
+                    <div class="canal-cards-grid" id="cards-aguardando-teste">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="canal-tab-content" id="tab-content-mapeadas">
+                    <div class="canal-cards-grid" id="cards-mapeadas">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="canal-tab-content" id="tab-content-historico">
+                    <div class="canal-cards-grid" id="cards-historico">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Detalhes da Ação</h2>
+                <button class="modal-close" id="modal-close">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Conteúdo será inserido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados de exemplo (Em produção, viriam de uma API)
+        const acoes = [
+        {
+            id: 1,
+            nome: "Recuperação de PIX gerado e expirado",
+            canal: "Mozart",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "14/04/2026",
+            dataFim: "30/04/2026",
+            duracao: "16 dias",
+            hipotese: "Pix expirou — o QR Code do Pix tem validade de 8 minutos. O lead pode ter gerado e não pago a tempo. Abandono intencional temporário — gerou o Pix, saiu para \"pagar depois\" e esqueceu.",
+            acaoExecutada: "Disparo de E-mail após o lead gerar o PIX e não realizar o pagamento.",
+            descricao: "O disparo ocorrerá 38 minutos após a geração do PIX, pois hoje o PIX expira em 8 minutos e temos até 30 minutos para liquidar o pagamento do parceiro.",
+            modeloTeste: "100% dos leads que gerarem o PIX no período.",
+            metricaSucesso: "Conversão Self",
+            links: []
+        },
+        {
+            id: 2,
+            nome: "Middleware do Livechat para todos os leads \"Livechat\".",
+            canal: "Livechat",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "14/04/2026",
+            dataFim: "30/04/2026",
+            duracao: "16 dias",
+            hipotese: "Possibilitar novas frentes de captação self para leads Livechat impacta positivamente o total de captados sem diminuir a captação de leads em SofIA.",
+            acaoExecutada: "Apresentar o Middleware para os leads Livechat alocados na SofIA",
+            descricao: "",
+            modeloTeste: "50% dos leads Livechat alocados para a SofIA",
+            metricaSucesso: "Conversão Global, Conversão Self e % Ativados",
+            links: []
+        },
+        {
+            id: 3,
+            nome: "Represamento de Leads Contrate Agora pelo sistema de Pontuação",
+            canal: "Self Checkout",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "08/04/2026",
+            dataFim: "30/04/2026",
+            duracao: "22 dias",
+            hipotese: "Quanto maior a qualidade dos leads, maior o indicativo em converter de maneira self.",
+            acaoExecutada: "Represamento dos leads em Self seguindo um período de maior conversão self dos parceiros.",
+            descricao: "Represamento dos leads P0 e P1 em 5horas, P2 em 30 minutos e P3 sempre represado. O AS-IS do represamento é 30 minutos para todos os leads do Tipo Self Checkout.",
+            modeloTeste: "50% dos leads no novo período de represamento e 50% no AS-IS.",
+            metricaSucesso: "Conversão Global, Conversão Self e % Ativados",
+            links: [
+                { texto: "Material referente ao teste", url: "https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g38b3a6a77ee_4_11#slide=id.g38b3a6a77ee_4_11" }
+            ]
+        },
+        {
+            id: 4,
+            nome: "Represamento de Leads Testar Grátis pelo sistema de Pontuação",
+            canal: "Trial",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "08/04/2026",
+            dataFim: "30/04/2026",
+            duracao: "22 dias",
+            hipotese: "Quanto maior a qualidade dos leads, maior o indicativo em converter de maneira self.",
+            acaoExecutada: "Represamento dos leads em Self seguindo um período de maior conversão self dos parceiros.",
+            descricao: "Represamento dos leads P0 em 120horas, P1 e P2 em 5 horas e P3 sempre represado. O AS-IS do represamento é 120 minutos (2h) para todos os leads do Tipo Contratar Agora.",
+            modeloTeste: "50% dos leads no novo período de represamento e 50% no AS-IS.",
+            metricaSucesso: "Conversão Global, Conversão Self e % Ativados",
+            links: [
+                { texto: "Material referente ao teste", url: "https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g38b3a6a77ee_4_11#slide=id.g38b3a6a77ee_4_11" }
+            ]
+        },
+        {
+            id: 5,
+            nome: "Personalização da apresentação dos planos de acordo com o perfil",
+            canal: "Self Checkout",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "14/04/2026",
+            dataFim: "30/04/2026",
+            duracao: "16 dias",
+            hipotese: "Personalizar a recomendação para o parceiro de acordo com o seu perfil terá impacto positivo na conversão ao direcionar o lead para o plano correto, evitando possíveis objeções de preço e funcionalidades.",
+            acaoExecutada: "Apresentação da TAG de recomendado ao escolher o plano pelo fluxo de selfcheckout.",
+            descricao: "Personalização da apresentação dos planos de acordo com o preenchimento do formulário. Leads receberão a recomendação de planos de Start caso preencham o faturamento no formulário de até R$20.000,00. Faturamento acima de R$20,000,00 receberão o plano Gestão Avançada como recomendação",
+            modeloTeste: "50% dos leads que passarem pelo fluxo de Selfcheckout",
+            metricaSucesso: "Conversão Self e Share de Leads de Gestão Avançada",
+            links: []
+        },
+        {
+            id: 6,
+            nome: "Incentivo ao Pedido Real Trial",
+            canal: "Trial",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "23/03/2026",
+            dataFim: "14/04/2026",
+            duracao: "22 dias",
+            hipotese: "Exibir um modal de incentivo logo após o onboarding inicial aumentará a taxa de usuários que recebem o primeiro pedido real, pois: (i) Reduz fricção ao dar próximos passos claros, (ii) Cria urgência e foco imediato e (iii) Oferece suporte/incentivo no momento de maior engajamento",
+            acaoExecutada: "Inclusão de um banner após a conclusão do Onboarding inicial da ferramenta explicando como receber pedidos reais",
+            descricao: "",
+            modeloTeste: "50% dos leads que criam conta receberão o banner construído via UserPilot",
+            metricaSucesso: "Conversão Self e Conversão Global",
+            links: [
+                { texto: "Protótipo e modelo do teste", url: "https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g3d5109d2a72_2_1613#slide=id.g3d5109d2a72_2_1613" }
+            ]
+        },
+        {
+            id: 7,
+            nome: "Incentivo a acesso de planos via Menu do Admin",
+            canal: "Trial",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "04/05/2026",
+            dataFim: "19/05/2026",
+            duracao: "15 dias",
+            hipotese: "A tela de planos da Anota está atualmente escondida no Menu, dificultando o acesso dos leads para visualização de planos.",
+            acaoExecutada: "Tornar acessível a visualização dos planos no Menu Lateral e indicando um contador do Trial.",
+            descricao: "",
+            modeloTeste: "Teste A/B com 50% dos leads que criam conta",
+            metricaSucesso: "Conversão após o clique no botão + Conversão Geral",
+            links: [
+                { texto: "Material detalhado", url: "https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g38b3a6a77ee_4_17#slide=id.g38b3a6a77ee_4_17" }
+            ]
+        },
+        {
+            id: 8,
+            nome: "Incentivo à Contratação após o Onboarding",
+            canal: "Trial",
+            status: "Aguardando Teste",
+            mes: "Abril/26",
+            dataInicio: "15/04/2026",
+            dataFim: "30/04/2026",
+            duracao: "15 dias",
+            hipotese: "O final do Onboarding é o período que o lead identificou o momento \"AHA\" do parceiro e é nesse momento que precisamos incentivar o parceiro a contratar e, com isso, aumentar a conversão self desse canal.",
+            acaoExecutada: "Inclusão de Banner de Contratação ao final do ciclo",
+            descricao: "",
+            modeloTeste: "50% dos leads que criarem conta.",
+            metricaSucesso: "Conversão Self",
+            links: []
+        },
+        {
+            id: 9,
+            nome: "Incentivo a utilização do Robô em Desktop & Mobile",
+            canal: "Trial",
+            status: "Em Desenvolvimento",
+            mes: "Maio/26",
+            dataInicio: "12/05/2026",
+            dataFim: "20/05/2026",
+            duracao: "8 dias",
+            hipotese: "",
+            acaoExecutada: "",
+            descricao: "",
+            modeloTeste: "50% dos leads que acessarem a jornada de Trial",
+            metricaSucesso: "Conversão Self",
+            links: []
+        },
+        {
+            id: 10,
+            nome: "Implementar Recomendação de Plano Personalizada",
+            canal: "Trial",
+            status: "Em Desenvolvimento",
+            mes: "Maio/26",
+            dataInicio: "12/05/2026",
+            dataFim: "30/05/2026",
+            duracao: "18 dias",
+            hipotese: "Personalizar a recomendação para o parceiro de acordo com o seu perfil terá impacto positivo na conversão ao direcionar o lead para o plano correto, evitando possíveis objeções de preço e funcionalidades.",
+            acaoExecutada: "Apresentação da TAG de recomendado ao escolher o plano pelo fluxo de Admin",
+            descricao: "Personalização da apresentação dos planos de acordo com o preenchimento do formulário. Leads receberão a recomendação de planos de Start caso preencham o faturamento no formulário de até R$20.000,00. Faturamento acima de R$20,000,00 receberão o plano Gestão Avançada como recomendação",
+            modeloTeste: "50% dos leads cadastrados no sistema",
+            metricaSucesso: "Conversão Self",
+            links: []
+        },
+        {
+            id: 11,
+            nome: "Retirada da etapa de Download do Cadastro",
+            canal: "Self Checkout",
+            status: "Em Desenvolvimento",
+            mes: "Maio/26",
+            dataInicio: "11/05/2026",
+            dataFim: "20/05/2026",
+            duracao: "9 dias",
+            hipotese: "",
+            acaoExecutada: "",
+            descricao: "",
+            modeloTeste: "50% dos leada que se cadastrarem no período",
+            metricaSucesso: "Taxa de 1º Login",
+            links: []
+        },
+        {
+            id: 12,
+            nome: "Perguntas iniciais na Jornada Trial",
+            canal: "Trial",
+            status: "Em Testes",
+            mes: "Abril/26",
+            dataInicio: "20/04/2026",
+            dataFim: "05/05/2026",
+            duracao: "15 dias",
+            hipotese: "Atualmente, todos os novos restaurantes parceiros passam pelo mesmo fluxo de onboarding, sem personalização baseada no tipo de negócio ou necessidade específica. Isso resulta em uma experiência genérica que não demonstra o valor imediato do sistema para cada perfil de estabelecimento. Sem entender o contexto e objetivo do parceiro desde o início, perdemos a oportunidade de: (i) Personalizar a jornada de captação e ativação do usuário; (ii) Direcionar funcionalidades mais relevantes para cada perfil com foco em conversão; (iii) Reduzir o tempo até o 1pdd real e conversão em pagante;",
+            acaoExecutada: "Implementar 2 perguntas estratégicas no início do onboarding: (1) Tipo de estabelecimento e (2) Objetivo principal. Coletar as respostas sem aplicar personalização imediata;",
+            descricao: "",
+            modeloTeste: "50% dos leads cadastrados no período",
+            metricaSucesso: "Medir taxa de abandono e engajamento comparando as bases;",
+            links: []
+        }
+        ];
+
+
+        // Calcular meses abrangidos entre data início e data fim
+        function calcularMesesAbrangidos(dataInicio, dataFim) {
+            const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
+                          'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            
+            // Converter datas DD/MM/YYYY para Date
+            const [diaI, mesI, anoI] = dataInicio.split('/');
+            const [diaF, mesF, anoF] = dataFim.split('/');
+            
+            const inicio = new Date(parseInt(anoI), parseInt(mesI) - 1, parseInt(diaI));
+            const fim = new Date(parseInt(anoF), parseInt(mesF) - 1, parseInt(diaF));
+            
+            const mesesAbrangidos = [];
+            const dataAtual = new Date(inicio.getFullYear(), inicio.getMonth(), 1);
+            
+            while (dataAtual <= fim) {
+                const mesNome = meses[dataAtual.getMonth()];
+                const anoSufixo = String(dataAtual.getFullYear()).slice(2);
+                mesesAbrangidos.push(`${mesNome}/${anoSufixo}`);
+                
+                // Próximo mês
+                dataAtual.setMonth(dataAtual.getMonth() + 1);
+            }
+            
+            return mesesAbrangidos;
+        }
+
+        // Estado da aplicação
+        let currentPage = 'inicio';
+        let currentCanal = '';
+        let filteredData = [...acoes];
+
+        // Elementos do DOM
+        const menuItems = document.querySelectorAll('.menu-item[data-page]');
+        const submenuItems = document.querySelectorAll('.submenu-item');
+        const canaisMenu = document.getElementById('canais-menu');
+        const canaisSubmenu = document.getElementById('canais-submenu');
+        const pageInicio = document.getElementById('page-inicio');
+        const pageCanal = document.getElementById('page-canal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalClose = document.getElementById('modal-close');
+        const filterCanal = document.getElementById('filter-canal');
+        const filterMes = document.getElementById('filter-mes');
+        const clearFilters = document.getElementById('clear-filters');
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            renderResumoTable();
+            setupEventListeners();
+        });
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Menu Início
+            menuItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = item.dataset.page;
+                    navigateToPage(page);
+                });
+            });
+
+            // Menu Canais
+            canaisMenu.addEventListener('click', () => {
+                canaisSubmenu.classList.toggle('open');
+            });
+
+            // Submenu Canais
+            submenuItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const canal = item.dataset.canal;
+                    navigateToCanal(canal);
+                });
+            });
+
+            // Filtros
+            filterCanal.addEventListener('change', applyFilters);
+            filterMes.addEventListener('change', applyFilters);
+            clearFilters.addEventListener('click', resetFilters);
+
+            // Modal
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Navegação
+        function navigateToPage(page) {
+            currentPage = page;
+            
+            // Atualizar menu
+            menuItems.forEach(item => {
+                if (item.dataset.page === page) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            submenuItems.forEach(item => item.classList.remove('active'));
+
+            // Mostrar página correta
+            if (page === 'inicio') {
+                pageInicio.classList.remove('hidden');
+                pageCanal.classList.add('hidden');
+                canaisSubmenu.classList.remove('open');
+            }
+        }
+
+        function navigateToCanal(canal) {
+            currentPage = 'canal';
+            currentCanal = canal;
+
+            // Atualizar menu
+            menuItems.forEach(item => item.classList.remove('active'));
+            submenuItems.forEach(item => {
+                if (item.dataset.canal === canal) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Mostrar página do canal
+            pageInicio.classList.add('hidden');
+            pageCanal.classList.remove('hidden');
+            canaisSubmenu.classList.add('open');
+
+            // Atualizar título
+            document.getElementById('canal-title').textContent = canal;
+
+            // Renderizar cards do canal
+            renderCanalCards(canal);
+        }
+
+        
+
+        // Filtros
+        function applyFilters() {
+            const canalFilter = filterCanal.value;
+            const mesFilter = filterMes.value;
+
+            filteredData = acoes.filter(acao => {
+                const canalMatch = !canalFilter || acao.canal === canalFilter;
+                
+                // Nova lógica: verificar se o mês filtrado está entre os meses abrangidos pela ação
+                let mesMatch = !mesFilter;
+                if (mesFilter && acao.dataInicio && acao.dataFim) {
+                    const mesesAbrangidos = calcularMesesAbrangidos(acao.dataInicio, acao.dataFim);
+                    mesMatch = mesesAbrangidos.includes(mesFilter);
+                } else if (mesFilter) {
+                    // Fallback para ações sem data de fim
+                    mesMatch = acao.mes === mesFilter;
+                }
+                
+                const statusMatch = acao.status === 'Em Testes' || acao.status === 'Em Desenvolvimento';
+                return canalMatch && mesMatch && statusMatch;
+            });
+
+            updateActiveFilters();
+            renderResumoTable();
+        }
+
+        function resetFilters() {
+            filterCanal.value = '';
+            filterMes.value = '';
+            applyFilters();
+        }
+
+        function updateActiveFilters() {
+            const activeFiltersText = document.getElementById('active-filters-text');
+            const filters = [];
+            
+            if (filterCanal.value) filters.push(filterCanal.value);
+            if (filterMes.value) filters.push(filterMes.value);
+            
+            activeFiltersText.textContent = filters.length > 0 ? filters.join(', ') : 'Nenhum';
+        }
+
+        // Renderizar Tabela de Resumo
+        function renderResumoTable() {
+            const tbody = document.getElementById('resumo-tbody');
+            tbody.innerHTML = '';
+
+            const resumoData = filteredData.filter(acao => 
+                acao.status === 'Em Testes' || acao.status === 'Em Desenvolvimento'
+            );
+
+            if (resumoData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 3rem; color: var(--text-secondary);">
+                            Nenhuma ação encontrada com os filtros aplicados
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            resumoData.forEach(acao => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${acao.canal}</strong></td>
+                    <td>${acao.nome}</td>
+                    <td>${renderStatusBadge(acao.status)}</td>
+                    <td>${acao.mes}</td>
+                    <td>${acao.dataInicio}</td>
+                `;
+                tr.addEventListener('click', () => openModal(acao));
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Renderizar Cards do Canal
+        function renderCanalCards(canal) {
+            const canalAcoes = acoes.filter(acao => acao.canal === canal);
+
+            // Atualizar subtítulo
+            document.getElementById('canal-subtitle').textContent = `Acompanhamento de testes do canal ${canal}`;
+
+            // Em Testes
+            const emTestes = canalAcoes.filter(a => a.status === 'Em Testes');
+            renderCanalCardsList('cards-em-testes', emTestes);
+            document.getElementById('tab-count-em-testes').textContent = emTestes.length;
+
+            // Em Desenvolvimento
+            const emDesenvolvimento = canalAcoes.filter(a => a.status === 'Em Desenvolvimento');
+            renderCanalCardsList('cards-em-desenvolvimento', emDesenvolvimento);
+            document.getElementById('tab-count-em-desenvolvimento').textContent = emDesenvolvimento.length;
+
+            // Aguardando Teste
+            const aguardandoTeste = canalAcoes.filter(a => a.status === 'Aguardando Teste');
+            renderCanalCardsList('cards-aguardando-teste', aguardandoTeste);
+            document.getElementById('tab-count-aguardando-teste').textContent = aguardandoTeste.length;
+
+            // Mapeadas
+            const mapeadas = canalAcoes.filter(a => a.status === 'Mapeada');
+            renderCanalCardsList('cards-mapeadas', mapeadas);
+            document.getElementById('tab-count-mapeadas').textContent = mapeadas.length;
+
+            // Histórico (Concluído)
+            const historico = canalAcoes.filter(a => a.status === 'Concluído');
+            renderCanalCardsList('cards-historico', historico);
+            document.getElementById('tab-count-historico').textContent = historico.length;
+
+            // Setup tabs
+            setupCanalTabs();
+        }
+
+        function renderCanalCardsList(containerId, acoes) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            if (acoes.length === 0) {
+                container.innerHTML = `
+                    <div class="canal-empty-state">
+                        <div class="canal-empty-state-text">Nenhuma ação nesta categoria</div>
+                    </div>
+                `;
+                return;
+            }
+
+            acoes.forEach(acao => {
+                const card = document.createElement('div');
+                card.className = 'canal-card';
+                card.innerHTML = `
+                    <div class="canal-card-header">
+                        <h3 class="canal-card-title">${acao.nome}</h3>
+                        <div class="canal-card-meta">
+                            <span class="canal-card-status ${getStatusClass(acao.status).replace('status-', '')}">${acao.status.toUpperCase()}</span>
+                            <span class="canal-card-canal">${acao.canal}</span>
+                        </div>
+                    </div>
+                    <div class="canal-card-body">
+                        <div class="canal-card-field">
+                            <div class="canal-card-field-label">Hipótese:</div>
+                            <div class="canal-card-field-value">${acao.hipotese}</div>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(acao));
+                container.appendChild(card);
+            });
+        }
+
+        // Setup Canal Tabs
+        function setupCanalTabs() {
+            const tabs = document.querySelectorAll('.canal-tab');
+            const tabContents = document.querySelectorAll('.canal-tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+
+                    // Remove active de todas as tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+
+                    // Adiciona active na tab clicada
+                    tab.classList.add('active');
+                    document.getElementById(`tab-content-${tabName}`).classList.add('active');
+                });
+            });
+        }
+
+        // Renderizar Status Badge
+        function renderStatusBadge(status) {
+            const statusClass = getStatusClass(status);
+            return `<span class="status-badge ${statusClass}">
+                        <span class="status-icon"></span>
+                        ${status}
+                    </span>`;
+        }
+
+        // Modal
+        function openModal(acao) {
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Atualizar header do modal
+            const modalHeader = document.querySelector('.modal-header');
+            modalHeader.innerHTML = `
+                <div class="modal-header-content">
+                    <h2 class="modal-title">${acao.nome}</h2>
+                    <div class="modal-meta">
+                        <span class="modal-badge">${acao.status.toUpperCase()}</span>
+                        <span class="modal-canal-badge">${acao.canal}</span>
+                    </div>
+                </div>
+                <button class="modal-close" id="modal-close">✕</button>
+            `;
+
+            // Atualizar body com layout em grid
+            modalBody.innerHTML = `
+                <div class="modal-grid">
+                    <!-- Coluna 1: Informações Básicas -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Informações Gerais</h3>
+                        
+                        <div class="modal-field">
+                            <div class="modal-field-label">📅 Período</div>
+                            <div class="modal-dates">
+                                <div class="modal-date-item">
+                                    <div class="modal-field-value">
+                                        <strong>Início:</strong> ${acao.dataInicio}
+                                    </div>
+                                </div>
+                                ${acao.dataFim ? `
+                                <div class="modal-date-item">
+                                    <div class="modal-field-value">
+                                        <strong>Fim:</strong> ${acao.dataFim}
+                                    </div>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">⏱️ Duração</div>
+                            <div class="modal-field-value">${acao.duracao || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">📊 Modelo do Teste</div>
+                            <div class="modal-field-value ${!acao.modeloTeste ? 'empty' : ''}">${acao.modeloTeste || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">🎯 Métrica de Sucesso</div>
+                            <div class="modal-field-value ${!acao.metricaSucesso ? 'empty' : ''}">${acao.metricaSucesso || 'Não informado'}</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Detalhes do Teste -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Detalhes do Teste</h3>
+                        
+                        <div class="modal-field">
+                            <div class="modal-field-label">💡 Hipótese Testada</div>
+                            <div class="modal-field-value ${!acao.hipotese ? 'empty' : ''}">${acao.hipotese || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">⚡ Ação Executada</div>
+                            <div class="modal-field-value ${!acao.acaoExecutada ? 'empty' : ''}">${acao.acaoExecutada || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">📝 Descrição</div>
+                            <div class="modal-field-value ${!acao.descricao ? 'empty' : ''}">${acao.descricao || 'Não informado'}</div>
+                        </div>
+                    </div>
+
+                    <!-- Links (Full Width) -->
+                    ${acao.links && acao.links.length > 0 ? `
+                    <div class="modal-section modal-full-width">
+                        <h3 class="modal-section-title">Links Importantes</h3>
+                        <div class="modal-links">
+                            ${acao.links.map(link => `
+                                <a href="${link.url}" class="modal-link" target="_blank">
+                                    ${link.texto}
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            // Reaplicar o event listener do botão close
+            document.getElementById('modal-close').addEventListener('click', closeModal);
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Utilidades
+        function getStatusClass(status) {
+            const statusMap = {
+                'Em Testes': 'status-em-testes',
+                'Em Desenvolvimento': 'status-em-desenvolvimento',
+                'Aguardando Teste': 'status-aguardando-teste',
+                'Mapeada': 'status-mapeada',
+                'Concluído': 'status-concluido'
+            };
+            return statusMap[status] || '';
+        }
+
+        // Atalhos de teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
