@@ -1289,98 +1289,7 @@
                                 </thead>
                                 <tbody id="resumo-tbody">
                     <!-- INICIO_DADOS_TABELA -->
-                    <tr class="odd">
-                        <td>Mozart</td>
-                        <td>Recuperação de PIX gerado e expirado</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Abr/26</td>
-                        <td>14/04/2026</td>
-                    </tr>
-                    <tr class="even">
-                        <td>Livechat</td>
-                        <td>Middleware do Livechat para todos os leads Livechat</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Abr/26</td>
-                        <td>14/04/2026</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>Self Checkout</td>
-                        <td>Represamento de Leads Contrate Agora pelo sistema de Pontuação</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Abr/26</td>
-                        <td>08/04/2026</td>
-                    </tr>
-                    <tr class="even">
-                        <td>Trial</td>
-                        <td>Represamento de Leads Testar Grátis pelo sistema de Pontuação</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Abr/26</td>
-                        <td>08/04/2026</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>Self Checkout</td>
-                        <td>Personalização da apresentação dos planos de acordo com o perfil</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Abr/26</td>
-                        <td>14/04/2026</td>
-                    </tr>
-                    <tr class="even">
-                        <td>Trial</td>
-                        <td>Incentivo ao Pedido Real Trial</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Mar/26</td>
-                        <td>23/03/2026</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>Trial</td>
-                        <td>Incentivo a acesso de planos via Menu do Admin</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Mai/26</td>
-                        <td>04/05/2026</td>
-                    </tr>
-                    <tr class="even">
-                        <td>Trial</td>
-                        <td>Incentivo à Contratação após o Onboarding</td>
-                        <td><span class="status-badge status-em-testes">Aguardando Teste</span></td>
-                        <td>Abr/26</td>
-                        <td>15/04/2026</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>Trial</td>
-                        <td>Incentivo a utilização do Robô em Desktop  Mobile</td>
-                        <td><span class="status-badge status-em-desenvolvimento">Em Desenvolvimento</span></td>
-                        <td>Mai/26</td>
-                        <td>12/05/2026</td>
-                    </tr>
-                    <tr class="even">
-                        <td>Trial</td>
-                        <td>Implementar Recomendação de Plano Personalizada</td>
-                        <td><span class="status-badge status-em-desenvolvimento">Em Desenvolvimento</span></td>
-                        <td>Mai/26</td>
-                        <td>12/05/2026</td>
-                    </tr>
-                    <tr class="odd">
-                        <td>Self Checkout</td>
-                        <td>Retirada da etapa de Download do Cadastro</td>
-                        <td><span class="status-badge status-em-desenvolvimento">Em Desenvolvimento</span></td>
-                        <td>Mai/26</td>
-                        <td>11/05/2026</td>
-                    </tr>
-                    <tr class="even">
-                        <td>Trial</td>
-                        <td>Perguntas iniciais na Jornada Trial</td>
-                        <td><span class="status-badge status-em-testes">Em Testes</span></td>
-                        <td>Abr/26</td>
-                        <td>20/04/2026</td>
-                    </tr>
-                    <tr class="odd">
-                        <td></td>
-                        <td></td>
-                        <td><span class="status-badge "></span></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                <!-- FIM_DADOS_TABELA -->
+                    <!-- FIM_DADOS_TABELA -->
                 </tbody>
                             </table>
                         </div>
@@ -1919,5 +1828,120 @@
             }
         });
     </script>
-</body>
+
+        <script>
+            // INICIO_DADOS_JSON
+const acoes = [];
+            // FIM_DADOS_JSON
+            
+            // Função para obter classe CSS do status
+            function getStatusClass(status) {
+                const s = status.toLowerCase();
+                if (s.includes('teste')) return 'status-em-testes';
+                if (s.includes('desenvolvimento')) return 'status-em-desenvolvimento';
+                if (s.includes('aguardando')) return 'status-aguardando-teste';
+                if (s.includes('concluí') || s.includes('finalizado')) return 'status-concluido';
+                if (s.includes('mapeada')) return 'status-mapeada';
+                return '';
+            }
+            
+            // Renderizar tabela
+            function renderizarTabela(dados = acoes) {
+                const tbody = document.getElementById('resumo-tbody');
+                if (!tbody) return;
+                
+                tbody.innerHTML = '';
+                
+                dados.forEach((acao, index) => {
+                    const tr = document.createElement('tr');
+                    tr.className = index % 2 === 0 ? 'even' : 'odd';
+                    
+                    tr.innerHTML = `
+                        <td>${acao.canal}</td>
+                        <td>${acao.nome}</td>
+                        <td><span class="status-badge ${getStatusClass(acao.status)}">${acao.status}</span></td>
+                        <td>${acao.mes}</td>
+                        <td>${acao.dataInicio}</td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+                
+                // Atualizar contador
+                const totalElement = document.getElementById('total-iniciativas');
+                if (totalElement) {
+                    totalElement.textContent = dados.length;
+                }
+            }
+            
+            // Filtros
+            let filtros = {
+                canal: '',
+                mes: ''
+            };
+            
+            function aplicarFiltros() {
+                let dadosFiltrados = acoes;
+                
+                if (filtros.canal) {
+                    dadosFiltrados = dadosFiltrados.filter(a => 
+                        a.canal.toLowerCase().includes(filtros.canal.toLowerCase())
+                    );
+                }
+                
+                if (filtros.mes) {
+                    dadosFiltrados = dadosFiltrados.filter(a => 
+                        a.mes === filtros.mes
+                    );
+                }
+                
+                renderizarTabela(dadosFiltrados);
+            }
+            
+            function filtrarPorCanal(canal) {
+                filtros.canal = canal;
+                aplicarFiltros();
+            }
+            
+            function filtrarPorMes(mes) {
+                filtros.mes = mes;
+                aplicarFiltros();
+            }
+            
+            function limparFiltros() {
+                filtros = { canal: '', mes: '' };
+                
+                // Limpar selects se existirem
+                const selectCanal = document.getElementById('filter-canal');
+                const selectMes = document.getElementById('filter-mes');
+                if (selectCanal) selectCanal.value = '';
+                if (selectMes) selectMes.value = '';
+                
+                renderizarTabela(acoes);
+            }
+            
+            // Inicializar ao carregar página
+            document.addEventListener('DOMContentLoaded', function() {
+                renderizarTabela();
+                
+                // Configurar event listeners para filtros
+                const selectCanal = document.getElementById('filter-canal');
+                const selectMes = document.getElementById('filter-mes');
+                const btnLimpar = document.getElementById('btn-limpar-filtros');
+                
+                if (selectCanal) {
+                    selectCanal.addEventListener('change', (e) => filtrarPorCanal(e.target.value));
+                }
+                
+                if (selectMes) {
+                    selectMes.addEventListener('change', (e) => filtrarPorMes(e.target.value));
+                }
+                
+                if (btnLimpar) {
+                    btnLimpar.addEventListener('click', limparFiltros);
+                }
+            });
+        </script>
+
+    </body>
 </html>
