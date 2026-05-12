@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anota AI - Captação Self</title>
+    <title>Dashboard Comercial - Captação Self</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1186,15 +1186,16 @@
     </style>
 </head>
 <body>
+
     <div class="layout">
         <!-- Menu Lateral -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-container">
                     <div class="logo">A</div>
-                    <div class="logo-text">Anota AI</div>
+                    <div class="logo-text">AnotaAi</div>
                 </div>
-                <div class="sidebar-title">Anota AI - Captação Self</div>
+                <div class="sidebar-title">Captação Self</div>
                 <div class="sidebar-subtitle">Panorama geral das iniciativas de captação self</div>
             </div>
             <nav class="menu-section">
@@ -1222,7 +1223,7 @@
             <!-- Página Início -->
             <div id="page-inicio" class="page-content">
                 <div class="page-header">
-                    <h1 class="page-title-main">Anota AI - Captação Self</h1>
+                    <h1 class="page-title-main">Captação Self</h1>
                     <p class="page-subtitle-main">Panorama Geral das iniciativas de captação self.</p>
                 </div>
 
@@ -1288,9 +1289,8 @@
                                     </tr>
                                 </thead>
                                 <tbody id="resumo-tbody">
-                    <!-- INICIO_DADOS_TABELA -->
-                    <!-- FIM_DADOS_TABELA -->
-                </tbody>
+                                    <!-- Dados serão inseridos via JavaScript -->
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -1378,105 +1378,9 @@
         </div>
     </div>
 
-    <script>// INICIO_DADOS_JSON
-const acoes = [
-  {
-    "canal": "Mozart",
-    "nome": "Recuperação de PIX gerado e expirado",
-    "status": "Em Testes",
-    "mes": "Abr/26",
-    "dataInicio": "14/04/2026"
-  },
-  {
-    "canal": "Livechat",
-    "nome": "Middleware do Livechat para todos os leads \"Livechat\"",
-    "status": "Em Testes",
-    "mes": "Abr/26",
-    "dataInicio": "14/04/2026"
-  },
-  {
-    "canal": "Self Checkout",
-    "nome": "Represamento de Leads Contrate Agora pelo sistema de Pontuação",
-    "status": "Em Testes",
-    "mes": "Abr/26",
-    "dataInicio": "08/04/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Represamento de Leads Testar Grátis pelo sistema de Pontuação",
-    "status": "Em Testes",
-    "mes": "Abr/26",
-    "dataInicio": "08/04/2026"
-  },
-  {
-    "canal": "Self Checkout",
-    "nome": "Personalização da apresentação dos planos de acordo com o perfil",
-    "status": "Em Testes",
-    "mes": "Abr/26",
-    "dataInicio": "14/04/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Incentivo ao Pedido Real Trial",
-    "status": "Em Testes",
-    "mes": "Mar/26",
-    "dataInicio": "23/03/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Incentivo a acesso de planos via Menu do Admin",
-    "status": "Em Testes",
-    "mes": "Mai/26",
-    "dataInicio": "04/05/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Incentivo à Contratação após o Onboarding",
-    "status": "Aguardando Teste",
-    "mes": "Abr/26",
-    "dataInicio": "15/04/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Incentivo a utilização do Robô em Desktop & Mobile",
-    "status": "Em Desenvolvimento",
-    "mes": "Mai/26",
-    "dataInicio": "12/05/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Implementar Recomendação de Plano Personalizada",
-    "status": "Em Desenvolvimento",
-    "mes": "Mai/26",
-    "dataInicio": "12/05/2026"
-  },
-  {
-    "canal": "Self Checkout",
-    "nome": "Retirada da etapa de Download do Cadastro",
-    "status": "Em Desenvolvimento",
-    "mes": "Mai/26",
-    "dataInicio": "11/05/2026"
-  },
-  {
-    "canal": "Trial",
-    "nome": "Perguntas iniciais na Jornada Trial",
-    "status": "Em Testes",
-    "mes": "Abr/26",
-    "dataInicio": "20/04/2026"
-  },
-  {
-    "canal": "",
-    "nome": "",
-    "status": "",
-    "mes": "",
-    "dataInicio": ""
-  }
-];
-            // FIM_DADOS_JSON
-
-
+    <script>
         // Dados de exemplo (Em produção, viriam de uma API)
-        
+        const acoes = [];
 
 
         // Calcular meses abrangidos entre data início e data fim
@@ -1925,117 +1829,462 @@ const acoes = [
         });
     </script>
 
-        <script>
+    
+    <script>
+        // INICIO_DADOS_JSON
+const acoes = [];
+        // FIM_DADOS_JSON
+        
+
+        // Dados de exemplo (Em produção, viriam de uma API)
+        const acoes = [];
+
+
+        // Calcular meses abrangidos entre data início e data fim
+        function calcularMesesAbrangidos(dataInicio, dataFim) {
+            const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
+                          'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
             
+            // Converter datas DD/MM/YYYY para Date
+            const [diaI, mesI, anoI] = dataInicio.split('/');
+            const [diaF, mesF, anoF] = dataFim.split('/');
             
-            // Função para obter classe CSS do status
-            function getStatusClass(status) {
-                const s = status.toLowerCase();
-                if (s.includes('teste')) return 'status-em-testes';
-                if (s.includes('desenvolvimento')) return 'status-em-desenvolvimento';
-                if (s.includes('aguardando')) return 'status-aguardando-teste';
-                if (s.includes('concluí') || s.includes('finalizado')) return 'status-concluido';
-                if (s.includes('mapeada')) return 'status-mapeada';
-                return '';
+            const inicio = new Date(parseInt(anoI), parseInt(mesI) - 1, parseInt(diaI));
+            const fim = new Date(parseInt(anoF), parseInt(mesF) - 1, parseInt(diaF));
+            
+            const mesesAbrangidos = [];
+            const dataAtual = new Date(inicio.getFullYear(), inicio.getMonth(), 1);
+            
+            while (dataAtual <= fim) {
+                const mesNome = meses[dataAtual.getMonth()];
+                const anoSufixo = String(dataAtual.getFullYear()).slice(2);
+                mesesAbrangidos.push(`${mesNome}/${anoSufixo}`);
+                
+                // Próximo mês
+                dataAtual.setMonth(dataAtual.getMonth() + 1);
             }
             
-            // Renderizar tabela
-            function renderizarTabela(dados = acoes) {
-                const tbody = document.getElementById('resumo-tbody');
-                if (!tbody) return;
-                
-                tbody.innerHTML = '';
-                
-                dados.forEach((acao, index) => {
-                    const tr = document.createElement('tr');
-                    tr.className = index % 2 === 0 ? 'even' : 'odd';
-                    
-                    tr.innerHTML = `
-                        <td>${acao.canal}</td>
-                        <td>${acao.nome}</td>
-                        <td><span class="status-badge ${getStatusClass(acao.status)}">${acao.status}</span></td>
-                        <td>${acao.mes}</td>
-                        <td>${acao.dataInicio}</td>
-                    `;
-                    
-                    tbody.appendChild(tr);
+            return mesesAbrangidos;
+        }
+
+        // Estado da aplicação
+        let currentPage = 'inicio';
+        let currentCanal = '';
+        let filteredData = [...acoes];
+
+        // Elementos do DOM
+        const menuItems = document.querySelectorAll('.menu-item[data-page]');
+        const submenuItems = document.querySelectorAll('.submenu-item');
+        const canaisMenu = document.getElementById('canais-menu');
+        const canaisSubmenu = document.getElementById('canais-submenu');
+        const pageInicio = document.getElementById('page-inicio');
+        const pageCanal = document.getElementById('page-canal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalClose = document.getElementById('modal-close');
+        const filterCanal = document.getElementById('filter-canal');
+        const filterMes = document.getElementById('filter-mes');
+        const clearFilters = document.getElementById('clear-filters');
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            renderResumoTable();
+            setupEventListeners();
+        });
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Menu Início
+            menuItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = item.dataset.page;
+                    navigateToPage(page);
                 });
-                
-                // Atualizar contador
-                const totalElement = document.getElementById('total-iniciativas');
-                if (totalElement) {
-                    totalElement.textContent = dados.length;
-                }
-            }
-            
+            });
+
+            // Menu Canais
+            canaisMenu.addEventListener('click', () => {
+                canaisSubmenu.classList.toggle('open');
+            });
+
+            // Submenu Canais
+            submenuItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const canal = item.dataset.canal;
+                    navigateToCanal(canal);
+                });
+            });
+
             // Filtros
-            let filtros = {
-                canal: '',
-                mes: ''
-            };
-            
-            function aplicarFiltros() {
-                let dadosFiltrados = acoes;
-                
-                if (filtros.canal) {
-                    dadosFiltrados = dadosFiltrados.filter(a => 
-                        a.canal.toLowerCase().includes(filtros.canal.toLowerCase())
-                    );
-                }
-                
-                if (filtros.mes) {
-                    dadosFiltrados = dadosFiltrados.filter(a => 
-                        a.mes === filtros.mes
-                    );
-                }
-                
-                renderizarTabela(dadosFiltrados);
-            }
-            
-            function filtrarPorCanal(canal) {
-                filtros.canal = canal;
-                aplicarFiltros();
-            }
-            
-            function filtrarPorMes(mes) {
-                filtros.mes = mes;
-                aplicarFiltros();
-            }
-            
-            function limparFiltros() {
-                filtros = { canal: '', mes: '' };
-                
-                // Limpar selects se existirem
-                const selectCanal = document.getElementById('filter-canal');
-                const selectMes = document.getElementById('filter-mes');
-                if (selectCanal) selectCanal.value = '';
-                if (selectMes) selectMes.value = '';
-                
-                renderizarTabela(acoes);
-            }
-            
-            // Inicializar ao carregar página
-            document.addEventListener('DOMContentLoaded', function() {
-                renderizarTabela();
-                
-                // Configurar event listeners para filtros
-                const selectCanal = document.getElementById('filter-canal');
-                const selectMes = document.getElementById('filter-mes');
-                const btnLimpar = document.getElementById('btn-limpar-filtros');
-                
-                if (selectCanal) {
-                    selectCanal.addEventListener('change', (e) => filtrarPorCanal(e.target.value));
-                }
-                
-                if (selectMes) {
-                    selectMes.addEventListener('change', (e) => filtrarPorMes(e.target.value));
-                }
-                
-                if (btnLimpar) {
-                    btnLimpar.addEventListener('click', limparFiltros);
+            filterCanal.addEventListener('change', applyFilters);
+            filterMes.addEventListener('change', applyFilters);
+            clearFilters.addEventListener('click', resetFilters);
+
+            // Modal
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
                 }
             });
-        </script>
+        }
 
-    </body>
+        // Navegação
+        function navigateToPage(page) {
+            currentPage = page;
+            
+            // Atualizar menu
+            menuItems.forEach(item => {
+                if (item.dataset.page === page) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            submenuItems.forEach(item => item.classList.remove('active'));
+
+            // Mostrar página correta
+            if (page === 'inicio') {
+                pageInicio.classList.remove('hidden');
+                pageCanal.classList.add('hidden');
+                canaisSubmenu.classList.remove('open');
+            }
+        }
+
+        function navigateToCanal(canal) {
+            currentPage = 'canal';
+            currentCanal = canal;
+
+            // Atualizar menu
+            menuItems.forEach(item => item.classList.remove('active'));
+            submenuItems.forEach(item => {
+                if (item.dataset.canal === canal) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Mostrar página do canal
+            pageInicio.classList.add('hidden');
+            pageCanal.classList.remove('hidden');
+            canaisSubmenu.classList.add('open');
+
+            // Atualizar título
+            document.getElementById('canal-title').textContent = canal;
+
+            // Renderizar cards do canal
+            renderCanalCards(canal);
+        }
+
+        
+
+        // Filtros
+        function applyFilters() {
+            const canalFilter = filterCanal.value;
+            const mesFilter = filterMes.value;
+
+            filteredData = acoes.filter(acao => {
+                const canalMatch = !canalFilter || acao.canal === canalFilter;
+                
+                // Nova lógica: verificar se o mês filtrado está entre os meses abrangidos pela ação
+                let mesMatch = !mesFilter;
+                if (mesFilter && acao.dataInicio && acao.dataFim) {
+                    const mesesAbrangidos = calcularMesesAbrangidos(acao.dataInicio, acao.dataFim);
+                    mesMatch = mesesAbrangidos.includes(mesFilter);
+                } else if (mesFilter) {
+                    // Fallback para ações sem data de fim
+                    mesMatch = acao.mes === mesFilter;
+                }
+                
+                const statusMatch = acao.status === 'Em Testes' || acao.status === 'Em Desenvolvimento';
+                return canalMatch && mesMatch && statusMatch;
+            });
+
+            updateActiveFilters();
+            renderResumoTable();
+        }
+
+        function resetFilters() {
+            filterCanal.value = '';
+            filterMes.value = '';
+            applyFilters();
+        }
+
+        function updateActiveFilters() {
+            const activeFiltersText = document.getElementById('active-filters-text');
+            const filters = [];
+            
+            if (filterCanal.value) filters.push(filterCanal.value);
+            if (filterMes.value) filters.push(filterMes.value);
+            
+            activeFiltersText.textContent = filters.length > 0 ? filters.join(', ') : 'Nenhum';
+        }
+
+        // Renderizar Tabela de Resumo
+        function renderResumoTable() {
+            const tbody = document.getElementById('resumo-tbody');
+            tbody.innerHTML = '';
+
+            const resumoData = filteredData.filter(acao => 
+                acao.status === 'Em Testes' || acao.status === 'Em Desenvolvimento'
+            );
+
+            if (resumoData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 3rem; color: var(--text-secondary);">
+                            Nenhuma ação encontrada com os filtros aplicados
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            resumoData.forEach(acao => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${acao.canal}</strong></td>
+                    <td>${acao.nome}</td>
+                    <td>${renderStatusBadge(acao.status)}</td>
+                    <td>${acao.mes}</td>
+                    <td>${acao.dataInicio}</td>
+                `;
+                tr.addEventListener('click', () => openModal(acao));
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Renderizar Cards do Canal
+        function renderCanalCards(canal) {
+            const canalAcoes = acoes.filter(acao => acao.canal === canal);
+
+            // Atualizar subtítulo
+            document.getElementById('canal-subtitle').textContent = `Acompanhamento de testes do canal ${canal}`;
+
+            // Em Testes
+            const emTestes = canalAcoes.filter(a => a.status === 'Em Testes');
+            renderCanalCardsList('cards-em-testes', emTestes);
+            document.getElementById('tab-count-em-testes').textContent = emTestes.length;
+
+            // Em Desenvolvimento
+            const emDesenvolvimento = canalAcoes.filter(a => a.status === 'Em Desenvolvimento');
+            renderCanalCardsList('cards-em-desenvolvimento', emDesenvolvimento);
+            document.getElementById('tab-count-em-desenvolvimento').textContent = emDesenvolvimento.length;
+
+            // Aguardando Teste
+            const aguardandoTeste = canalAcoes.filter(a => a.status === 'Aguardando Teste');
+            renderCanalCardsList('cards-aguardando-teste', aguardandoTeste);
+            document.getElementById('tab-count-aguardando-teste').textContent = aguardandoTeste.length;
+
+            // Mapeadas
+            const mapeadas = canalAcoes.filter(a => a.status === 'Mapeada');
+            renderCanalCardsList('cards-mapeadas', mapeadas);
+            document.getElementById('tab-count-mapeadas').textContent = mapeadas.length;
+
+            // Histórico (Concluído)
+            const historico = canalAcoes.filter(a => a.status === 'Concluído');
+            renderCanalCardsList('cards-historico', historico);
+            document.getElementById('tab-count-historico').textContent = historico.length;
+
+            // Setup tabs
+            setupCanalTabs();
+        }
+
+        function renderCanalCardsList(containerId, acoes) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            if (acoes.length === 0) {
+                container.innerHTML = `
+                    <div class="canal-empty-state">
+                        <div class="canal-empty-state-text">Nenhuma ação nesta categoria</div>
+                    </div>
+                `;
+                return;
+            }
+
+            acoes.forEach(acao => {
+                const card = document.createElement('div');
+                card.className = 'canal-card';
+                card.innerHTML = `
+                    <div class="canal-card-header">
+                        <h3 class="canal-card-title">${acao.nome}</h3>
+                        <div class="canal-card-meta">
+                            <span class="canal-card-status ${getStatusClass(acao.status).replace('status-', '')}">${acao.status.toUpperCase()}</span>
+                            <span class="canal-card-canal">${acao.canal}</span>
+                        </div>
+                    </div>
+                    <div class="canal-card-body">
+                        <div class="canal-card-field">
+                            <div class="canal-card-field-label">Hipótese:</div>
+                            <div class="canal-card-field-value">${acao.hipotese}</div>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(acao));
+                container.appendChild(card);
+            });
+        }
+
+        // Setup Canal Tabs
+        function setupCanalTabs() {
+            const tabs = document.querySelectorAll('.canal-tab');
+            const tabContents = document.querySelectorAll('.canal-tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+
+                    // Remove active de todas as tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+
+                    // Adiciona active na tab clicada
+                    tab.classList.add('active');
+                    document.getElementById(`tab-content-${tabName}`).classList.add('active');
+                });
+            });
+        }
+
+        // Renderizar Status Badge
+        function renderStatusBadge(status) {
+            const statusClass = getStatusClass(status);
+            return `<span class="status-badge ${statusClass}">
+                        <span class="status-icon"></span>
+                        ${status}
+                    </span>`;
+        }
+
+        // Modal
+        function openModal(acao) {
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Atualizar header do modal
+            const modalHeader = document.querySelector('.modal-header');
+            modalHeader.innerHTML = `
+                <div class="modal-header-content">
+                    <h2 class="modal-title">${acao.nome}</h2>
+                    <div class="modal-meta">
+                        <span class="modal-badge">${acao.status.toUpperCase()}</span>
+                        <span class="modal-canal-badge">${acao.canal}</span>
+                    </div>
+                </div>
+                <button class="modal-close" id="modal-close">✕</button>
+            `;
+
+            // Atualizar body com layout em grid
+            modalBody.innerHTML = `
+                <div class="modal-grid">
+                    <!-- Coluna 1: Informações Básicas -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Informações Gerais</h3>
+                        
+                        <div class="modal-field">
+                            <div class="modal-field-label">📅 Período</div>
+                            <div class="modal-dates">
+                                <div class="modal-date-item">
+                                    <div class="modal-field-value">
+                                        <strong>Início:</strong> ${acao.dataInicio}
+                                    </div>
+                                </div>
+                                ${acao.dataFim ? `
+                                <div class="modal-date-item">
+                                    <div class="modal-field-value">
+                                        <strong>Fim:</strong> ${acao.dataFim}
+                                    </div>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">⏱️ Duração</div>
+                            <div class="modal-field-value">${acao.duracao || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">📊 Modelo do Teste</div>
+                            <div class="modal-field-value ${!acao.modeloTeste ? 'empty' : ''}">${acao.modeloTeste || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">🎯 Métrica de Sucesso</div>
+                            <div class="modal-field-value ${!acao.metricaSucesso ? 'empty' : ''}">${acao.metricaSucesso || 'Não informado'}</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Detalhes do Teste -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Detalhes do Teste</h3>
+                        
+                        <div class="modal-field">
+                            <div class="modal-field-label">💡 Hipótese Testada</div>
+                            <div class="modal-field-value ${!acao.hipotese ? 'empty' : ''}">${acao.hipotese || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">⚡ Ação Executada</div>
+                            <div class="modal-field-value ${!acao.acaoExecutada ? 'empty' : ''}">${acao.acaoExecutada || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">📝 Descrição</div>
+                            <div class="modal-field-value ${!acao.descricao ? 'empty' : ''}">${acao.descricao || 'Não informado'}</div>
+                        </div>
+                    </div>
+
+                    <!-- Links (Full Width) -->
+                    ${acao.links && acao.links.length > 0 ? `
+                    <div class="modal-section modal-full-width">
+                        <h3 class="modal-section-title">Links Importantes</h3>
+                        <div class="modal-links">
+                            ${acao.links.map(link => `
+                                <a href="${link.url}" class="modal-link" target="_blank">
+                                    ${link.texto}
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            // Reaplicar o event listener do botão close
+            document.getElementById('modal-close').addEventListener('click', closeModal);
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Utilidades
+        function getStatusClass(status) {
+            const statusMap = {
+                'Em Testes': 'status-em-testes',
+                'Em Desenvolvimento': 'status-em-desenvolvimento',
+                'Aguardando Teste': 'status-aguardando-teste',
+                'Mapeada': 'status-mapeada',
+                'Concluído': 'status-concluido'
+            };
+            return statusMap[status] || '';
+        }
+
+        // Atalhos de teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    
+    </script>
+</body>
 </html>
