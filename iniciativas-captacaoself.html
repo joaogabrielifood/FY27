@@ -1289,7 +1289,202 @@
                                 </thead>
                                 <tbody id="resumo-tbody">
                     <!-- INICIO_DADOS_TABELA -->
-                    <!-- FIM_DADOS_TABELA -->
+                    <tr class="odd">
+                        <td>1</td>
+                        <td>Recuperação de PIX gerado e expirado</td>
+                        <td>Mozart</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>14/04/2026</td>
+                        <td>30/04/2026</td>
+                        <td>16 dias</td>
+                        <td>Pix expirou — o QR Code do Pix tem validade de 8 minutos. O lead pode ter gerado e não pago a tempo. Abandono intencional temporário — gerou o Pix, saiu para 'pagar depois' e esqueceu.</td>
+                        <td>Disparo de E-mail após o lead gerar o PIX e não realizar o pagamento.</td>
+                        <td>O disparo ocorrerá 38 minutos após a geração do PIX, pois hoje o PIX expira em 8 minutos e temos até 30 minutos para liquidar o pagamento do parceiro.</td>
+                        <td>100% dos leads que gerarem o PIX no período.</td>
+                        <td>Conversão Self</td>
+                        <td></td>
+                    </tr>
+                    <tr class="even">
+                        <td>2</td>
+                        <td>Middleware do Livechat para todos os leads &quot;Livechat&quot;</td>
+                        <td>Livechat</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>14/04/2026</td>
+                        <td>30/04/2026</td>
+                        <td>16 dias</td>
+                        <td>Possibilitar novas frentes de captação self para leads Livechat impacta positivamente o total de captados sem diminuir a captação de leads em SofIA.</td>
+                        <td>Apresentar o Middleware para os leads Livechat alocados na SofIA</td>
+                        <td></td>
+                        <td>50% dos leads Livechat alocados para a SofIA</td>
+                        <td>Conversão Global, Conversão Self e % Ativados</td>
+                        <td></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>3</td>
+                        <td>Represamento de Leads Contrate Agora pelo sistema de Pontuação</td>
+                        <td>Self Checkout</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>08/04/2026</td>
+                        <td>30/04/2026</td>
+                        <td>22 dias</td>
+                        <td>Quanto maior a qualidade dos leads, maior o indicativo em converter de maneira self.</td>
+                        <td>Represamento dos leads em Self seguindo um período de maior conversão self dos parceiros.</td>
+                        <td>Represamento dos leads P0 e P1 em 5horas, P2 em 30 minutos e P3 sempre represado. O AS-IS do represamento é 30 minutos para todos os leads do Tipo Self Checkout.</td>
+                        <td>50% dos leads no novo período de represamento e 50% no AS-IS.</td>
+                        <td>Conversão Global, Conversão Self e % Ativados</td>
+                        <td>https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g38b3a6a77ee_4_11#slide=id.g38b3a6a77ee_4_11</td>
+                    </tr>
+                    <tr class="even">
+                        <td>4</td>
+                        <td>Represamento de Leads Testar Grátis pelo sistema de Pontuação</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>08/04/2026</td>
+                        <td>30/04/2026</td>
+                        <td>22 dias</td>
+                        <td>Quanto maior a qualidade dos leads, maior o indicativo em converter de maneira self.</td>
+                        <td>Represamento dos leads em Self seguindo um período de maior conversão self dos parceiros.</td>
+                        <td>Represamento dos leads P0 em 120horas, P1 e P2 em 5 horas e P3 sempre represado. O AS-IS do represamento é 120 minutos (2h) para todos os leads do Tipo Contratar Agora.</td>
+                        <td>50% dos leads no novo período de represamento e 50% no AS-IS.</td>
+                        <td>Conversão Global, Conversão Self e % Ativados</td>
+                        <td>https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g38b3a6a77ee_4_11#slide=id.g38b3a6a77ee_4_11</td>
+                    </tr>
+                    <tr class="odd">
+                        <td>5</td>
+                        <td>Personalização da apresentação dos planos de acordo com o perfil</td>
+                        <td>Self Checkout</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>14/04/2026</td>
+                        <td>30/04/2026</td>
+                        <td>16 dias</td>
+                        <td>Personalizar a recomendação para o parceiro de acordo com o seu perfil terá impacto positivo na conversão ao direcionar o lead para o plano correto, evitando possíveis objeções de preço e funcionalidades.</td>
+                        <td>Apresentação da TAG de recomendado ao escolher o plano pelo fluxo de selfcheckout.</td>
+                        <td>Personalização da apresentação dos planos de acordo com o preenchimento do formulário. Leads receberão a recomendação de planos de Start caso preencham o faturamento no formulário de até R$20.000,00. Faturamento acima de R$20,000,00 receberão o plano Gestão Avançada como recomendação</td>
+                        <td>50% dos leads que passarem pelo fluxo de Selfcheckout</td>
+                        <td>Conversão Self e Share de Leads de Gestão Avançada</td>
+                        <td></td>
+                    </tr>
+                    <tr class="even">
+                        <td>6</td>
+                        <td>Incentivo ao Pedido Real Trial</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>23/03/2026</td>
+                        <td>14/04/2026</td>
+                        <td>22 dias</td>
+                        <td>Exibir um modal de incentivo logo após o onboarding inicial aumentará a taxa de usuários que recebem o primeiro pedido real, pois: (i) Reduz fricção ao dar próximos passos claros, (ii) Cria urgência e foco imediato e (iii) Oferece suporte/incentivo no momento de maior engajamento</td>
+                        <td>Inclusão de um banner após a conclusão do Onboarding inicial da ferramenta explicando como receber pedidos reais</td>
+                        <td></td>
+                        <td>50% dos leads que criam conta receberão o banner construído via UserPilot</td>
+                        <td>Conversão Self e Conversão Global</td>
+                        <td>https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g3d5109d2a72_2_1613#slide=id.g3d5109d2a72_2_1613</td>
+                    </tr>
+                    <tr class="odd">
+                        <td>7</td>
+                        <td>Incentivo a acesso de planos via Menu do Admin</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>04/05/2026</td>
+                        <td>19/05/2026</td>
+                        <td>15 dias</td>
+                        <td>A tela de planos da Anota está atualmente escondida no Menu, dificultando o acesso dos leads para visualização de planos.</td>
+                        <td>Tornar acessível a visualização dos planos no Menu Lateral e indicando um contador do Trial.</td>
+                        <td></td>
+                        <td>Teste A/B com 50% dos leads que criam conta</td>
+                        <td>Conversão após o clique no botão + Conversão Geral</td>
+                        <td>https://docs.google.com/presentation/d/1J2P7aGtBIeRRGSfwfEcQHHjTbmPNYu4MPYprje33q1A/edit?slide=id.g38b3a6a77ee_4_17#slide=id.g38b3a6a77ee_4_17</td>
+                    </tr>
+                    <tr class="even">
+                        <td>8</td>
+                        <td>Incentivo à Contratação após o Onboarding</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-planejamento">Aguardando Teste</span></td>
+                        <td>15/04/2026</td>
+                        <td>30/04/2026</td>
+                        <td>15 dias</td>
+                        <td>O final do Onboarding é o período que o lead identificou o momento &quot;AHA&quot; do parceiro e é nesse momento que precisamos incentivar o parceiro a contratar e, com isso, aumentar a conversão self desse canal.</td>
+                        <td>Inclusão de Banner de Contratação ao final do ciclo</td>
+                        <td></td>
+                        <td>50% dos leads que criarem conta.</td>
+                        <td>Conversão Self</td>
+                        <td></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>9</td>
+                        <td>Incentivo a utilização do Robô em Desktop &amp; Mobile</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-andamento">Em Desenvolvimento</span></td>
+                        <td>12/05/2026</td>
+                        <td>20/05/2026</td>
+                        <td>8 dias</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>50% dos leads que acessarem a jornada de Trial</td>
+                        <td>Conversão Self</td>
+                        <td></td>
+                    </tr>
+                    <tr class="even">
+                        <td>10</td>
+                        <td>Implementar Recomendação de Plano Personalizada</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-andamento">Em Desenvolvimento</span></td>
+                        <td>12/05/2026</td>
+                        <td>30/05/2026</td>
+                        <td>18 dias</td>
+                        <td>Personalizar a recomendação para o parceiro de acordo com o seu perfil terá impacto positivo na conversão ao direcionar o lead para o plano correto, evitando possíveis objeções de preço e funcionalidades.</td>
+                        <td>Apresentação da TAG de recomendado ao escolher o plano pelo fluxo de Admin</td>
+                        <td>Personalização da apresentação dos planos de acordo com o preenchimento do formulário. Leads receberão a recomendação de planos de Start caso preencham o faturamento no formulário de até R$20.000,00. Faturamento acima de R$20,000,00 receberão o plano Gestão Avançada como recomendação</td>
+                        <td>50% dos leads cadastrados no sistema</td>
+                        <td>Conversão Self</td>
+                        <td></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>11</td>
+                        <td>Retirada da etapa de Download do Cadastro</td>
+                        <td>Self Checkout</td>
+                        <td><span class="status-badge status-andamento">Em Desenvolvimento</span></td>
+                        <td>11/05/2026</td>
+                        <td>20/05/2026</td>
+                        <td>9 dias</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>50% dos leada que se cadastrarem no período</td>
+                        <td>Taxa de 1º Login</td>
+                        <td></td>
+                    </tr>
+                    <tr class="even">
+                        <td>12</td>
+                        <td>Perguntas iniciais na Jornada Trial</td>
+                        <td>Trial</td>
+                        <td><span class="status-badge status-planejamento">Em Testes</span></td>
+                        <td>20/04/2026</td>
+                        <td>05/05/2026</td>
+                        <td>15 dias</td>
+                        <td>Atualmente, todos os novos restaurantes parceiros passam pelo mesmo fluxo de onboarding, sem personalização baseada no tipo de negócio ou necessidade específica. Isso resulta em uma experiência genérica que não demonstra o valor imediato do sistema para cada perfil de estabelecimento. Sem entender o contexto e objetivo do parceiro desde o início, perdemos a oportunidade de: (i) Personalizar a jornada de captação e ativação do usuário; (ii) Direcionar funcionalidades mais relevantes para cada perfil com foco em conversão; (iii) Reduzir o tempo até o 1pdd real e conversão em pagante;</td>
+                        <td>Implementar 2 perguntas estratégicas no início do onboarding: (1) Tipo de estabelecimento e (2) Objetivo principal. Coletar as respostas sem aplicar personalização imediata;</td>
+                        <td></td>
+                        <td>50% dos leads cadastrados no período</td>
+                        <td>Medir taxa de abandono e engajamento comparando as bases;</td>
+                        <td></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>/</td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="status-badge "></span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <!-- FIM_DADOS_TABELA -->
                 </tbody>
                             </table>
                         </div>
