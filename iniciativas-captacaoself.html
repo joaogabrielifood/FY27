@@ -44,11 +44,13 @@
             line-height: 1.6;
         }
 
+        /* Layout Principal */
         .layout {
             display: flex;
             min-height: 100vh;
         }
 
+        /* Menu Lateral */
         .sidebar {
             width: 280px;
             background-color: var(--bg-white);
@@ -138,6 +140,16 @@
             align-items: center;
         }
 
+        .menu-badge {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            margin-left: auto;
+        }
+
         .submenu {
             max-height: 0;
             overflow: hidden;
@@ -171,6 +183,7 @@
             border-left-color: var(--ifood-red);
         }
 
+        /* Conteúdo Principal */
         .main-content {
             margin-left: 280px;
             flex: 1;
@@ -178,6 +191,7 @@
             background-color: var(--ifood-bg);
         }
 
+        /* Header da Página */
         .page-header {
             background: linear-gradient(135deg, var(--ifood-red) 0%, var(--ifood-dark-red) 100%);
             color: white;
@@ -196,10 +210,72 @@
             font-weight: 400;
         }
 
+        /* Welcome Section */
+        .welcome-section {
+            background-color: var(--bg-white);
+            margin: -1.5rem 3rem 2rem;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .welcome-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background-color: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-gray);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--ifood-red);
+            line-height: 1;
+        }
+
+        /* Content Section */
         .content-section {
             padding: 0 3rem 3rem;
         }
 
+        /* Filtros */
         .filters-container {
             background-color: var(--bg-white);
             border-radius: 12px;
@@ -297,6 +373,7 @@
             font-weight: 600;
         }
 
+        /* Tabela de Resumo */
         .table-container {
             background-color: var(--bg-white);
             border-radius: 12px;
@@ -364,6 +441,7 @@
             font-weight: 600;
         }
 
+        /* Status Badge */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -428,197 +506,119 @@
             background-color: #065f46;
         }
 
-        .canal-header {
+        /* Cards de Canais */
+        .cards-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .section-count {
+            background-color: var(--gray-100);
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            font-weight: 700;
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
             background-color: var(--bg-white);
-            padding: 2rem 3rem;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid var(--border-gray);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(234, 29, 44, 0.12);
+            border-color: var(--ifood-red);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid var(--border-gray);
         }
 
-        .canal-title {
-            font-size: 2rem;
+        .card-title {
+            font-size: 1.125rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 0.5rem;
         }
 
-        .canal-subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        .canal-tabs {
-            display: flex;
-            gap: 0;
-            background-color: var(--bg-white);
-            padding: 0 3rem;
-            border-bottom: 2px solid var(--border-gray);
-            overflow-x: auto;
-        }
-
-        .canal-tab {
-            padding: 1rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gray-600);
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .canal-tab:hover {
-            color: var(--ifood-red);
-            background-color: var(--bg-light-red);
-        }
-
-        .canal-tab.active {
-            color: var(--ifood-red);
-            border-bottom-color: var(--ifood-red);
-        }
-
-        .canal-tab-count {
-            background-color: var(--gray-200);
-            color: var(--gray-700);
-            font-size: 0.75rem;
+        .card-canal {
+            font-size: 0.7rem;
             font-weight: 700;
-            padding: 0.125rem 0.5rem;
-            border-radius: 12px;
-            min-width: 20px;
-            text-align: center;
+            color: var(--ifood-red);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .canal-tab.active .canal-tab-count {
-            background-color: var(--ifood-red);
-            color: white;
+        .card-body {
+            margin-top: 1rem;
         }
 
-        .canal-tab-content {
-            display: none;
-            padding: 2rem 3rem;
-        }
-
-        .canal-tab-content.active {
-            display: block;
-        }
-
-        .canal-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .canal-card {
-            background-color: var(--bg-white);
-            border: 1px solid var(--border-gray);
-            border-radius: 12px;
-            padding: 1.75rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .canal-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: var(--ifood-red);
-            transform: translateY(-4px);
-        }
-
-        .canal-card-header {
-            margin-bottom: 1.25rem;
-        }
-
-        .canal-card-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .canal-card-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .card-field {
             margin-bottom: 1rem;
         }
 
-        .canal-card-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.375rem 0.875rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
+        .card-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-field-label {
+            font-size: 0.7rem;
             font-weight: 700;
+            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        .canal-card-status.em-testes {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-
-        .canal-card-status.em-desenvolvimento {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .canal-card-status.aguardando-teste {
-            background-color: #fef3c7;
-            color: #d97706;
-        }
-
-        .canal-card-status.mapeada {
-            background-color: #e0e7ff;
-            color: #3730a3;
-        }
-
-        .canal-card-status.concluido {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        .canal-card-canal {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--gray-600);
-        }
-
-        .canal-card-body {
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-gray);
-        }
-
-        .canal-card-field-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--gray-600);
+            letter-spacing: 0.5px;
             margin-bottom: 0.375rem;
         }
 
-        .canal-card-field-value {
+        .card-field-value {
             font-size: 0.9rem;
             color: var(--gray-800);
             line-height: 1.6;
+            font-weight: 500;
         }
 
-        .canal-empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
+        .card-duration {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--gray-100);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-700);
         }
 
-        .canal-empty-state-text {
-            font-size: 1rem;
-            color: var(--text-secondary);
-        }
-
+        /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -790,6 +790,10 @@
             gap: 0.5rem;
         }
 
+        .modal-field-icon {
+            font-size: 1rem;
+        }
+
         .modal-field-value {
             font-size: 0.95rem;
             color: var(--gray-800);
@@ -850,20 +854,280 @@
             flex: 1;
         }
 
+        /* Responsividade do Modal */
+        @media (max-width: 768px) {
+            .modal {
+                max-width: 100%;
+                margin: 1rem;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .modal-dates {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+
+        /* Página de Canal - Novo Design */
+        .canal-header {
+            background-color: var(--bg-white);
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .canal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .canal-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Tabs de Navegação */
+        .canal-tabs {
+            display: flex;
+            gap: 0;
+            background-color: var(--bg-white);
+            padding: 0 3rem;
+            border-bottom: 2px solid var(--border-gray);
+            overflow-x: auto;
+        }
+
+        .canal-tab {
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .canal-tab:hover {
+            color: var(--ifood-red);
+            background-color: var(--bg-light-red);
+        }
+
+        .canal-tab.active {
+            color: var(--ifood-red);
+            border-bottom-color: var(--ifood-red);
+        }
+
+        .canal-tab-icon {
+            font-size: 1rem;
+        }
+
+        .canal-tab-count {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .canal-tab.active .canal-tab-count {
+            background-color: var(--ifood-red);
+            color: white;
+        }
+
+        /* Conteúdo das Tabs */
+        .canal-tab-content {
+            display: none;
+            padding: 2rem 3rem;
+        }
+
+        .canal-tab-content.active {
+            display: block;
+        }
+
+        /* Cards do Canal - Novo Design */
+        .canal-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .canal-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .canal-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--ifood-red);
+            transform: translateY(-4px);
+        }
+
+        .canal-card-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .canal-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .canal-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .canal-card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .canal-card-status.em-testes {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .canal-card-status.em-desenvolvimento {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .canal-card-status.mapeada {
+            background-color: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .canal-card-status.aguardando-teste {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .canal-card-status.concluido {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .canal-card-canal {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        .canal-card-body {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .canal-card-field {
+            margin-bottom: 0.875rem;
+        }
+
+        .canal-card-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .canal-card-field-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            margin-bottom: 0.375rem;
+        }
+
+        .canal-card-field-value {
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* Empty State */
+        .canal-empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .canal-empty-state-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Página vazia */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-text {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        /* Utilitários */
         .hidden {
             display: none !important;
         }
 
+        /* Responsividade */
         @media (max-width: 1024px) {
             .sidebar {
                 width: 260px;
             }
+
             .main-content {
                 margin-left: 260px;
             }
+
             .page-header {
                 padding: 2rem;
             }
+
+            .welcome-section {
+                margin: -1rem 2rem 2rem;
+            }
+
             .content-section {
                 padding: 0 2rem 2rem;
             }
@@ -875,44 +1139,100 @@
                 position: relative;
                 height: auto;
             }
+
             .main-content {
                 margin-left: 0;
             }
+
             .page-header {
                 padding: 1.5rem;
             }
+
             .page-title-main {
                 font-size: 1.75rem;
             }
+
+            .welcome-section {
+                margin: -1rem 1.5rem 1.5rem;
+                padding: 1.5rem;
+            }
+
             .content-section {
                 padding: 0 1.5rem 1.5rem;
             }
-            .modal {
-                max-width: 100%;
-                margin: 1rem;
-            }
-            .modal-header {
-                padding: 1.5rem;
-            }
-            .modal-title {
-                font-size: 1.25rem;
-            }
-            .modal-body {
-                padding: 1.5rem;
-            }
-            .modal-grid {
+
+            .cards-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
-            .modal-dates {
-                flex-direction: column;
-                gap: 1rem;
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+    
+        /* Status Badges */
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        
+        .status-concluido {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-andamento {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status-parado {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .status-planejamento {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        /* Linhas alternadas */
+        tbody tr.even {
+            background-color: var(--gray-50);
+        }
+        
+        tbody tr.odd {
+            background-color: var(--bg-white);
+        }
+        
+        tbody tr:hover {
+            background-color: var(--bg-lighter-red);
+            transition: background-color 0.2s ease;
+        }
+
     </style>
 </head>
 <body>
     <div class="layout">
+        <!-- Menu Lateral -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-container">
@@ -942,7 +1262,9 @@
             </nav>
         </aside>
 
+        <!-- Conteúdo Principal -->
         <main class="main-content">
+            <!-- Página Início -->
             <div id="page-inicio" class="page-content">
                 <div class="page-header">
                     <h1 class="page-title-main">Anota AI - Captação Self</h1>
@@ -950,6 +1272,7 @@
                 </div>
 
                 <div class="content-section">
+                    <!-- Filtros Avançados -->
                     <div class="filters-container">
                         <div class="filters-header">
                             <h3 class="filters-title">Filtros Avançados</h3>
@@ -958,17 +1281,17 @@
                         <div class="filters-grid">
                             <div class="filter-group">
                                 <label class="filter-label">Canal</label>
-                                <select class="filter-select" id="filter-canal">
-                                    <option value="">Todos os canais</option>
-                                    <option value="Trial">Trial</option>
-                                    <option value="Self Checkout">Self Checkout</option>
-                                    <option value="Mozart">Mozart</option>
-                                    <option value="Livechat">Livechat</option>
-                                    <option value="SSI">SSI</option>
-                                    <option value="Vitrine">Vitrine</option>
-                                    <option value="SofIA">SofIA</option>
-                                    <option value="Outros">Outros</option>
-                                </select>
+                                                            <select class="filter-select" id="filter-canal">
+                                <option value="">Todos os canais</option>
+                                <option value="Trial">Trial</option>
+                                <option value="Self Checkout">Self Checkout</option>
+                                <option value="Mozart">Mozart</option>
+                                <option value="Livechat">Livechat</option>
+                                <option value="SSI">SSI</option>
+                                <option value="Vitrine">Vitrine</option>
+                                <option value="SofIA">SofIA</option>
+                                <option value="Outros">Outros</option>
+                            </select>
                             </div>
                             <div class="filter-group">
                                 <label class="filter-label">Mês</label>
@@ -995,6 +1318,7 @@
                         </div>
                     </div>
 
+                    <!-- Tabela de Resumo -->
                     <div class="table-container">
                         <h2 class="table-header">Ações Ativas do Mês</h2>
                         <div class="table-wrapper">
@@ -1008,19 +1332,23 @@
                                         <th>Data de Início</th>
                                     </tr>
                                 </thead>
-                                <tbody id="resumo-tbody"></tbody>
+                                <tbody id="resumo-tbody">
+                                    <!-- Dados serão inseridos via JavaScript -->
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Páginas de Canais (Template) -->
             <div id="page-canal" class="page-content hidden">
                 <div class="canal-header">
                     <h1 class="canal-title" id="canal-title">Canal</h1>
                     <p class="canal-subtitle" id="canal-subtitle">Acompanhamento de testes do canal</p>
                 </div>
 
+                <!-- Tabs de Navegação -->
                 <div class="canal-tabs">
                     <button class="canal-tab active" data-tab="em-testes">
                         <span class="canal-tab-icon">!</span>
@@ -1047,59 +1375,110 @@
                     </button>
                 </div>
 
+                <!-- Conteúdo das Tabs -->
                 <div class="canal-tab-content active" id="tab-content-em-testes">
-                    <div class="canal-cards-grid" id="cards-em-testes"></div>
+                    <div class="canal-cards-grid" id="cards-em-testes">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
                 </div>
+
                 <div class="canal-tab-content" id="tab-content-em-desenvolvimento">
-                    <div class="canal-cards-grid" id="cards-em-desenvolvimento"></div>
+                    <div class="canal-cards-grid" id="cards-em-desenvolvimento">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
                 </div>
+
                 <div class="canal-tab-content" id="tab-content-aguardando-teste">
-                    <div class="canal-cards-grid" id="cards-aguardando-teste"></div>
+                    <div class="canal-cards-grid" id="cards-aguardando-teste">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
                 </div>
+
                 <div class="canal-tab-content" id="tab-content-mapeadas">
-                    <div class="canal-cards-grid" id="cards-mapeadas"></div>
+                    <div class="canal-cards-grid" id="cards-mapeadas">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
                 </div>
+
                 <div class="canal-tab-content" id="tab-content-historico">
-                    <div class="canal-cards-grid" id="cards-historico"></div>
+                    <div class="canal-cards-grid" id="cards-historico">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
                 </div>
             </div>
+        
+        <!-- Informações de Atualização -->
+        <div style="background: var(--bg-white); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border: 1px solid var(--border-gray);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="font-size: 1rem; color: var(--gray-700); margin-bottom: 0.5rem;">📊 Estatísticas</h3>
+                    <p style="color: var(--gray-600); font-size: 0.875rem; margin: 0;">
+                        Total de Iniciativas: <strong id="total-iniciativas" style="color: var(--ifood-red);">0</strong>
+                    </p>
+                </div>
+                <div style="text-align: right;">
+                    <p style="color: var(--gray-500); font-size: 0.75rem; margin: 0;">Última Atualização</p>
+                    <p style="color: var(--gray-700); font-size: 0.875rem; font-weight: 600; margin: 0.25rem 0 0 0;">
+                        <span id="ultima-atualizacao">--/--/---- --:--:--</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
         </main>
     </div>
 
+    <!-- Modal -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal">
             <div class="modal-header">
                 <h2 class="modal-title" id="modal-title">Detalhes da Ação</h2>
                 <button class="modal-close" id="modal-close">✕</button>
             </div>
-            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-body" id="modal-body">
+                <!-- Conteúdo será inserido via JavaScript -->
+            </div>
         </div>
     </div>
 
     <script>
+        // Dados de exemplo (Em produção, viriam de uma API)
         const acoes = [];
 
+
+        // Calcular meses abrangidos entre data início e data fim
         function calcularMesesAbrangidos(dataInicio, dataFim) {
             const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
                           'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            
+            // Converter datas DD/MM/YYYY para Date
             const [diaI, mesI, anoI] = dataInicio.split('/');
             const [diaF, mesF, anoF] = dataFim.split('/');
+            
             const inicio = new Date(parseInt(anoI), parseInt(mesI) - 1, parseInt(diaI));
             const fim = new Date(parseInt(anoF), parseInt(mesF) - 1, parseInt(diaF));
+            
             const mesesAbrangidos = [];
             const dataAtual = new Date(inicio.getFullYear(), inicio.getMonth(), 1);
+            
             while (dataAtual <= fim) {
                 const mesNome = meses[dataAtual.getMonth()];
                 const anoSufixo = String(dataAtual.getFullYear()).slice(2);
                 mesesAbrangidos.push(`${mesNome}/${anoSufixo}`);
+                
+                // Próximo mês
                 dataAtual.setMonth(dataAtual.getMonth() + 1);
             }
+            
             return mesesAbrangidos;
         }
 
+        // Estado da aplicação
         let currentPage = 'inicio';
         let currentCanal = '';
         let filteredData = [...acoes];
+
+        // Elementos do DOM
         const menuItems = document.querySelectorAll('.menu-item[data-page]');
         const submenuItems = document.querySelectorAll('.submenu-item');
         const canaisMenu = document.getElementById('canais-menu');
@@ -1112,38 +1491,57 @@
         const filterMes = document.getElementById('filter-mes');
         const clearFilters = document.getElementById('clear-filters');
 
+        // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
+            
             renderResumoTable();
             setupEventListeners();
         });
 
+        // Event Listeners
         function setupEventListeners() {
+            // Menu Início
             menuItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
-                    navigateToPage(item.dataset.page);
+                    const page = item.dataset.page;
+                    navigateToPage(page);
                 });
             });
+
+            // Menu Canais
             canaisMenu.addEventListener('click', () => {
                 canaisSubmenu.classList.toggle('open');
             });
+
+            // Submenu Canais
             submenuItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
-                    navigateToCanal(item.dataset.canal);
+                    const canal = item.dataset.canal;
+                    navigateToCanal(canal);
                 });
             });
+
+            // Filtros
             filterCanal.addEventListener('change', applyFilters);
             filterMes.addEventListener('change', applyFilters);
             clearFilters.addEventListener('click', resetFilters);
+
+            // Modal
             modalClose.addEventListener('click', closeModal);
             modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) closeModal();
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
             });
         }
 
+        // Navegação
         function navigateToPage(page) {
             currentPage = page;
+            
+            // Atualizar menu
             menuItems.forEach(item => {
                 if (item.dataset.page === page) {
                     item.classList.add('active');
@@ -1151,7 +1549,10 @@
                     item.classList.remove('active');
                 }
             });
+            
             submenuItems.forEach(item => item.classList.remove('active'));
+
+            // Mostrar página correta
             if (page === 'inicio') {
                 pageInicio.classList.remove('hidden');
                 pageCanal.classList.add('hidden');
@@ -1162,6 +1563,8 @@
         function navigateToCanal(canal) {
             currentPage = 'canal';
             currentCanal = canal;
+
+            // Atualizar menu
             menuItems.forEach(item => item.classList.remove('active'));
             submenuItems.forEach(item => {
                 if (item.dataset.canal === canal) {
@@ -1170,28 +1573,43 @@
                     item.classList.remove('active');
                 }
             });
+
+            // Mostrar página do canal
             pageInicio.classList.add('hidden');
             pageCanal.classList.remove('hidden');
             canaisSubmenu.classList.add('open');
+
+            // Atualizar título
             document.getElementById('canal-title').textContent = canal;
+
+            // Renderizar cards do canal
             renderCanalCards(canal);
         }
 
+        
+
+        // Filtros
         function applyFilters() {
             const canalFilter = filterCanal.value;
             const mesFilter = filterMes.value;
+
             filteredData = acoes.filter(acao => {
                 const canalMatch = !canalFilter || acao.canal === canalFilter;
+                
+                // Nova lógica: verificar se o mês filtrado está entre os meses abrangidos pela ação
                 let mesMatch = !mesFilter;
                 if (mesFilter && acao.dataInicio && acao.dataFim) {
                     const mesesAbrangidos = calcularMesesAbrangidos(acao.dataInicio, acao.dataFim);
                     mesMatch = mesesAbrangidos.includes(mesFilter);
                 } else if (mesFilter) {
+                    // Fallback para ações sem data de fim
                     mesMatch = acao.mes === mesFilter;
                 }
+                
                 const statusMatch = acao.status === 'Em Testes' || acao.status === 'Em Desenvolvimento';
                 return canalMatch && mesMatch && statusMatch;
             });
+
             updateActiveFilters();
             renderResumoTable();
         }
@@ -1205,17 +1623,22 @@
         function updateActiveFilters() {
             const activeFiltersText = document.getElementById('active-filters-text');
             const filters = [];
+            
             if (filterCanal.value) filters.push(filterCanal.value);
             if (filterMes.value) filters.push(filterMes.value);
+            
             activeFiltersText.textContent = filters.length > 0 ? filters.join(', ') : 'Nenhum';
         }
 
+        // Renderizar Tabela de Resumo
         function renderResumoTable() {
             const tbody = document.getElementById('resumo-tbody');
             tbody.innerHTML = '';
+
             const resumoData = filteredData.filter(acao => 
                 acao.status === 'Em Testes' || acao.status === 'Em Desenvolvimento'
             );
+
             if (resumoData.length === 0) {
                 tbody.innerHTML = `
                     <tr>
@@ -1226,6 +1649,7 @@
                 `;
                 return;
             }
+
             resumoData.forEach(acao => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
@@ -1240,30 +1664,46 @@
             });
         }
 
+        // Renderizar Cards do Canal
         function renderCanalCards(canal) {
             const canalAcoes = acoes.filter(acao => acao.canal === canal);
+
+            // Atualizar subtítulo
             document.getElementById('canal-subtitle').textContent = `Acompanhamento de testes do canal ${canal}`;
+
+            // Em Testes
             const emTestes = canalAcoes.filter(a => a.status === 'Em Testes');
             renderCanalCardsList('cards-em-testes', emTestes);
             document.getElementById('tab-count-em-testes').textContent = emTestes.length;
+
+            // Em Desenvolvimento
             const emDesenvolvimento = canalAcoes.filter(a => a.status === 'Em Desenvolvimento');
             renderCanalCardsList('cards-em-desenvolvimento', emDesenvolvimento);
             document.getElementById('tab-count-em-desenvolvimento').textContent = emDesenvolvimento.length;
+
+            // Aguardando Teste
             const aguardandoTeste = canalAcoes.filter(a => a.status === 'Aguardando Teste');
             renderCanalCardsList('cards-aguardando-teste', aguardandoTeste);
             document.getElementById('tab-count-aguardando-teste').textContent = aguardandoTeste.length;
+
+            // Mapeadas
             const mapeadas = canalAcoes.filter(a => a.status === 'Mapeada');
             renderCanalCardsList('cards-mapeadas', mapeadas);
             document.getElementById('tab-count-mapeadas').textContent = mapeadas.length;
+
+            // Histórico (Concluído)
             const historico = canalAcoes.filter(a => a.status === 'Concluído');
             renderCanalCardsList('cards-historico', historico);
             document.getElementById('tab-count-historico').textContent = historico.length;
+
+            // Setup tabs
             setupCanalTabs();
         }
 
         function renderCanalCardsList(containerId, acoes) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
+
             if (acoes.length === 0) {
                 container.innerHTML = `
                     <div class="canal-empty-state">
@@ -1272,6 +1712,7 @@
                 `;
                 return;
             }
+
             acoes.forEach(acao => {
                 const card = document.createElement('div');
                 card.className = 'canal-card';
@@ -1295,20 +1736,160 @@
             });
         }
 
+        // Setup Canal Tabs
         function setupCanalTabs() {
             const tabs = document.querySelectorAll('.canal-tab');
             const tabContents = document.querySelectorAll('.canal-tab-content');
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const tabName = tab.dataset.tab;
+
+                    // Remove active de todas as tabs
                     tabs.forEach(t => t.classList.remove('active'));
                     tabContents.forEach(tc => tc.classList.remove('active'));
+
+                    // Adiciona active na tab clicada
                     tab.classList.add('active');
                     document.getElementById(`tab-content-${tabName}`).classList.add('active');
                 });
             });
         }
 
+        // Renderizar Status Badge
         function renderStatusBadge(status) {
             const statusClass = getStatusClass(status);
             return `<span class="status-badge ${statusClass}">
+                        <span class="status-icon"></span>
+                        ${status}
+                    </span>`;
+        }
+
+        // Modal
+        function openModal(acao) {
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Atualizar header do modal
+            const modalHeader = document.querySelector('.modal-header');
+            modalHeader.innerHTML = `
+                <div class="modal-header-content">
+                    <h2 class="modal-title">${acao.nome}</h2>
+                    <div class="modal-meta">
+                        <span class="modal-badge">${acao.status.toUpperCase()}</span>
+                        <span class="modal-canal-badge">${acao.canal}</span>
+                    </div>
+                </div>
+                <button class="modal-close" id="modal-close">✕</button>
+            `;
+
+            // Atualizar body com layout em grid
+            modalBody.innerHTML = `
+                <div class="modal-grid">
+                    <!-- Coluna 1: Informações Básicas -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Informações Gerais</h3>
+                        
+                        <div class="modal-field">
+                            <div class="modal-field-label">📅 Período</div>
+                            <div class="modal-dates">
+                                <div class="modal-date-item">
+                                    <div class="modal-field-value">
+                                        <strong>Início:</strong> ${acao.dataInicio}
+                                    </div>
+                                </div>
+                                ${acao.dataFim ? `
+                                <div class="modal-date-item">
+                                    <div class="modal-field-value">
+                                        <strong>Fim:</strong> ${acao.dataFim}
+                                    </div>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">⏱️ Duração</div>
+                            <div class="modal-field-value">${acao.duracao || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">📊 Modelo do Teste</div>
+                            <div class="modal-field-value ${!acao.modeloTeste ? 'empty' : ''}">${acao.modeloTeste || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">🎯 Métrica de Sucesso</div>
+                            <div class="modal-field-value ${!acao.metricaSucesso ? 'empty' : ''}">${acao.metricaSucesso || 'Não informado'}</div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Detalhes do Teste -->
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">Detalhes do Teste</h3>
+                        
+                        <div class="modal-field">
+                            <div class="modal-field-label">💡 Hipótese Testada</div>
+                            <div class="modal-field-value ${!acao.hipotese ? 'empty' : ''}">${acao.hipotese || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">⚡ Ação Executada</div>
+                            <div class="modal-field-value ${!acao.acaoExecutada ? 'empty' : ''}">${acao.acaoExecutada || 'Não informado'}</div>
+                        </div>
+
+                        <div class="modal-field">
+                            <div class="modal-field-label">📝 Descrição</div>
+                            <div class="modal-field-value ${!acao.descricao ? 'empty' : ''}">${acao.descricao || 'Não informado'}</div>
+                        </div>
+                    </div>
+
+                    <!-- Links (Full Width) -->
+                    ${acao.links && acao.links.length > 0 ? `
+                    <div class="modal-section modal-full-width">
+                        <h3 class="modal-section-title">Links Importantes</h3>
+                        <div class="modal-links">
+                            ${acao.links.map(link => `
+                                <a href="${link.url}" class="modal-link" target="_blank">
+                                    ${link.texto}
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            // Reaplicar o event listener do botão close
+            document.getElementById('modal-close').addEventListener('click', closeModal);
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Utilidades
+        function getStatusClass(status) {
+            const statusMap = {
+                'Em Testes': 'status-em-testes',
+                'Em Desenvolvimento': 'status-em-desenvolvimento',
+                'Aguardando Teste': 'status-aguardando-teste',
+                'Mapeada': 'status-mapeada',
+                'Concluído': 'status-concluido'
+            };
+            return statusMap[status] || '';
+        }
+
+        // Atalhos de teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
